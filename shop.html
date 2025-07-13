@@ -8,65 +8,34 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/@fortawesome/fontawesome-free@6.4.0/js/all.min.js" crossorigin="anonymous"></script>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="platform.css">
   <style>
-    :root {
-      --bg: #0d0d0d;
-      --fg: #ffffff;
-      --accent: #e50914;
-      --secondary: #1f1f1f;
-      --font-main: 'Montserrat', sans-serif;
-    }
-
-    body {
-      font-family: var(--font-main);
-      background-color: var(--bg);
-      color: var(--fg);
-    }
-
     .updates-form {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.8);
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
+      background: rgba(0, 0, 0, 0.7);
+      display: flex;
+      z-index: 999;
     }
 
     .modal-content {
-      background: var(--secondary);
+      background: white;
       padding: 2rem;
-      border-radius: 1rem;
-      max-width: 500px;
-      width: 100%;
-      color: var(--fg);
-    }
-
-    .modal-content input,
-    .modal-content select {
-      width: 100%;
-      margin-bottom: 1rem;
-      padding: 0.5rem;
-      border-radius: 0.375rem;
-      border: none;
-      color: black;
+      border-radius: 8px;
+      width: 90%;
+      max-width: 400px;
     }
 
     .close-btn {
       float: right;
-      cursor: pointer;
       font-size: 1.5rem;
+      cursor: pointer;
     }
 
     .subscribe button {
-      background-color: var(--accent);
+      margin-top: 10px;
+      background-color: var(--accent, #e11d48);
       color: white;
-      padding: 0.5rem 1rem;
-      border-radius: 0.375rem;
-      margin-top: 1rem;
+      padding: 8px 16px;
+      border-radius: 4px;
     }
   </style>
 </head>
@@ -82,6 +51,7 @@
       <a href="login.html" class="hover:text-[var(--accent)]"><i class="fas fa-user"></i></a>
       <a href="signup.html" class="hover:text-[var(--accent)]"><i class="fas fa-user-plus"></i></a>
       <button onclick="toggleForm()" class="hover:text-[var(--accent)]"><i class="fas fa-bell"></i></button>
+      <a href="checkout.html" class="hover:text-[var(--accent)]"><i class="fas fa-cart-shopping"></i></a>
     </div>
     <div class="md:hidden text-xl" onclick="toggleMenu()">
       <i class="fas fa-bars"></i>
@@ -95,72 +65,38 @@
     <a href="login.html" class="block hover:text-[var(--accent)]"><i class="fas fa-user"></i> Login</a>
     <a href="signup.html" class="block hover:text-[var(--accent)]"><i class="fas fa-user-plus"></i> Sign Up</a>
     <button onclick="toggleForm()" class="block w-full text-left hover:text-[var(--accent)]"><i class="fas fa-bell"></i> Updates</button>
-
+    <a href="checkout.html" class="block hover:text-[var(--accent)]"><i class="fas fa-cart-shopping"></i> Checkout</a>
   </div>
 
   <!-- Category Slider -->
-<section class="w-full bg-[var(--bg)] py-10 px-4">
-  <h2 class="text-3xl md:text-4xl font-bold text-center mb-8">Shop by Category</h2>
-  <div class="overflow-hidden relative">
-    <div id="categorySlider" class="flex gap-6 transition-transform duration-700 ease-in-out w-max">
-      <a href="shop.html?category=men" class="block min-w-[300px] max-w-[300px] hover:opacity-80">
-        <img src="./Merch and T-Shirts/maze-official-logo-tee.jpg" alt="Men's Wear" class="rounded-lg shadow-lg">
-        <p class="text-center mt-2 font-semibold">Men's Wear</p>
-      </a>
-      <a href="shop.html?category=women" class="block min-w-[300px] max-w-[300px] hover:opacity-80">
-        <img src="./Merch and T-Shirts/PosterMaker_18012025_150305.jpg" alt="Women's Wear" class="rounded-lg shadow-lg">
-        <p class="text-center mt-2 font-semibold">Women's Wear</p>
-      </a>
-      <a href="shop.html?category=unisex" class="block min-w-[300px] max-w-[300px] hover:opacity-80">
-        <img src="./Merch and T-Shirts/Maze_T-shirt-Army_Green.jpg" alt="Unisex" class="rounded-lg shadow-lg">
-        <p class="text-center mt-2 font-semibold">Unisex</p>
-      </a>
-      <a href="shop.html?category=shoes" class="block min-w-[300px] max-w-[300px] hover:opacity-80">
-        <img src="./Merch and T-Shirts/Maze_T-shirt-Army_Green.jpg" alt="Shoes" class="rounded-lg shadow-lg">
-        <p class="text-center mt-2 font-semibold">Shoes</p>
-      </a>
-      <a href="shop.html?category=accessories" class="block min-w-[300px] max-w-[300px] hover:opacity-80">
-        <img src="./Merch and T-Shirts/PosterMaker_18012025_123056.jpg" alt="Accessories" class="rounded-lg shadow-lg">
-        <p class="text-center mt-2 font-semibold">Accessories</p>
-      </a>
+  <section class="w-full bg-[var(--bg)] py-10 px-4">
+    <h2 class="text-3xl md:text-4xl font-bold text-center mb-8">Shop by Category</h2>
+    <div class="overflow-hidden relative">
+      <div id="categorySlider" class="flex gap-6 transition-transform duration-700 ease-in-out w-max">
+        <!-- Replace or extend with your real images -->
+        <a href="shop.html?category=men" class="block min-w-[300px] max-w-[300px] hover:opacity-80">
+          <img src="./Merch and T-Shirts/maze-official-logo-tee.jpg" alt="Men's Wear" class="rounded-lg shadow-lg">
+          <p class="text-center mt-2 font-semibold">Men's Wear</p>
+        </a>
+        <a href="shop.html?category=women" class="block min-w-[300px] max-w-[300px] hover:opacity-80">
+          <img src="./Merch and T-Shirts/PosterMaker_18012025_150305.jpg" alt="Women's Wear" class="rounded-lg shadow-lg">
+          <p class="text-center mt-2 font-semibold">Women's Wear</p>
+        </a>
+        <!-- more categories... -->
+      </div>
     </div>
-  </div>
-</section>
-
+  </section>
 
   <!-- Shop Content -->
   <main class="flex-grow px-6 py-10 max-w-7xl mx-auto">
     <h1 class="text-4xl font-bold text-center mb-10">Shop Our Latest</h1>
-
-    <!-- Categories -->
     <div class="flex flex-wrap justify-center gap-4 mb-10">
       <button class="bg-[var(--accent)] hover:bg-red-700 text-white px-4 py-2 rounded">All</button>
       <button class="bg-[var(--secondary)] hover:bg-[var(--accent)] px-4 py-2 rounded">Men</button>
-      <button class="bg-[var(--secondary)] hover:bg-[var(--accent)] px-4 py-2 rounded">Women</button>
-      <button class="bg-[var(--secondary)] hover:bg-[var(--accent)] px-4 py-2 rounded">Unisex</button>
-      <button class="bg-[var(--secondary)] hover:bg-[var(--accent)] px-4 py-2 rounded">Shoes</button>
-      <button class="bg-[var(--secondary)] hover:bg-[var(--accent)] px-4 py-2 rounded">Accessories</button>
+      <!-- add more buttons -->
     </div>
-
-    <!-- Product Grid -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-      <!-- Product Card -->
-      <div class="bg-[var(--secondary)] rounded-xl overflow-hidden shadow-lg hover:scale-105 transform transition">
-        <img src="https://images.unsplash.com/photo-1521335629791-ce4aec67dd47?auto=format&fit=crop&w=800&q=80" alt="Red Tee" class="w-full h-64 object-cover">
-        <div class="p-4">
-          <h3 class="text-[var(--accent)] text-lg font-semibold mb-2">Red Label Tee</h3>
-          <p class="mb-2">$35.00</p>
-          <div class="flex items-center gap-3 mb-4">
-            <button class="w-5 h-5 rounded-full bg-red-600 border-2 border-white"></button>
-            <button class="w-5 h-5 rounded-full bg-black border-2 border-white"></button>
-            <button class="w-5 h-5 rounded-full bg-blue-600 border-2 border-white"></button>
-          </div>
-          <button onclick="addToCart(this)" class="bg-[var(--accent)] text-white px-4 py-2 rounded hover:bg-red-700 transition">Add to Cart <span class="ml-2">+</span></button>
-        </div>
-      </div>
-
-      <!-- Duplicate this for more products (customize images, names, and prices) -->
-      <!-- ... add more items here using the same template ... -->
+    <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+      <!-- Dynamically populated by loadProducts.js -->
     </div>
   </main>
 
@@ -169,16 +105,15 @@
     <div class="modal-content">
       <span class="close-btn" onclick="toggleForm()">&times;</span>
       <form id="emailUpdatesForm">
-
         <h2 align="center">GET UPDATES</h2>
         <label for="email">EMAIL</label>
         <input type="email" id="email" required />
         <label for="zip">ZIP OR POSTAL CODE</label>
         <input type="number" id="zip" required />
         <label for="country">COUNTRY</label>
-        <select name="country" id="country">
-  <option value="">Select---</option>
-  <option value="Afghanistan">Afghanistan</option>
+        <select id="country">
+          <option value="">Select---</option>
+          <option value="Afghanistan">Afghanistan</option>
   <option value="Albania">Albania</option>
   <option value="Algeria">Algeria</option>
   <option value="Andorra">Andorra</option>
@@ -374,68 +309,67 @@
   <option value="Yemen">Yemen</option>
   <option value="Zambia">Zambia</option>
   <option value="Zimbabwe">Zimbabwe</option>
+          <!-- Add more -->
         </select>
         <div class="subscribe" align="center">
           <h3>SUBSCRIBE TO EMAIL UPDATES:</h3>
-          <button type="submit" id="subscribe">SUBSCRIBE</button>
+          <button type="submit">SUBSCRIBE</button>
           <p class="text-xs mt-2">
             EMAILS WILL BE SENT BY OR ON BEHALF OF AXIOS APPAREL<br />
-            YOU MAY WITHDRAW YOUR CONSENT AT ANYTIME. PRIVACY POLICY / DO NOT SELL MY PERSONAL INFORMATION
+            YOU MAY WITHDRAW YOUR CONSENT AT ANYTIME.
           </p>
         </div>
       </form>
     </div>
   </div>
 
+  <!-- Footer with Social Media -->
   <footer class="bg-[var(--secondary)] text-center py-6 text-sm">
+    <div class="flex justify-center space-x-6 mt-4 text-xl">
+      <a href="https://facebook.com" target="_blank" class="hover:text-[var(--accent)]"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://twitter.com" target="_blank" class="hover:text-[var(--accent)]"><i class="fab fa-x-twitter"></i></a>
+      <a href="https://instagram.com" target="_blank" class="hover:text-[var(--accent)]"><i class="fab fa-instagram"></i></a>
+      <a href="https://youtube.com" target="_blank" class="hover:text-[var(--accent)]"><i class="fab fa-youtube"></i></a>
+      <a href="https://tiktok.com" target="_blank" class="hover:text-[var(--accent)]"><i class="fab fa-tiktok"></i></a>
+    </div>
     <p>&copy; <span id="year"></span> Axios Apparel. All Rights Reserved.</p>
   </footer>
 
+  <!-- JavaScript -->
   <script>
+    // Year auto-update
     document.getElementById("year").textContent = new Date().getFullYear();
 
+    // Toggle Mobile Menu
     function toggleMenu() {
       document.getElementById("mobileMenu").classList.toggle("hidden");
     }
 
-    function addToCart(button) {
-      const span = button.querySelector("span");
-      if (!span.dataset.count) {
-        span.dataset.count = 1;
-        span.innerText = 1;
-      } else {
-        let count = parseInt(span.dataset.count);
-        span.dataset.count = count + 1;
-        span.innerText = span.dataset.count;
-      }
+    // Toggle Update Form
+    function toggleForm() {
+      const form = document.getElementById("updatesForm");
+      form.classList.toggle("hidden");
     }
 
-    
-  function toggleForm() {
-    const form = document.querySelector('.updates-form');
-    form.style.display = form.style.display === 'flex' ? 'none' : 'flex';
-  }
-
+    // Auto Slide
     const slider = document.getElementById("categorySlider");
-  let scrollPosition = 0;
-
-  function autoSlide() {
-    const cardWidth = 306; // 300px + gap
-    scrollPosition += cardWidth;
-    if (scrollPosition >= slider.scrollWidth - slider.clientWidth) {
-      scrollPosition = 0;
+    let scrollPosition = 0;
+    function autoSlide() {
+      const cardWidth = 306;
+      scrollPosition += cardWidth;
+      if (scrollPosition >= slider.scrollWidth - slider.clientWidth) scrollPosition = 0;
+      slider.scrollTo({ left: scrollPosition, behavior: "smooth" });
     }
-    slider.scrollTo({ left: scrollPosition, behavior: "smooth" });
-  }
-
-  setInterval(autoSlide, 3500); // Every 3.5 seconds
-
-  const urlParams = new URLSearchParams(window.location.search);
-const category = urlParams.get('category'); // "men", "women", etc.
-
-
+    setInterval(autoSlide, 3500);
   </script>
 
-</body>
+  <!-- External Scripts -->
+  <script src="form.js"></script>
+  <script src="loadProducts.js"></script>
+  <script src="cart.js"></script>
+  <script src="updates.js"></script>
+  <script src="checkout.js"></script>
+  <script src="navbar.js"></script>
 
+</body>
 </html>

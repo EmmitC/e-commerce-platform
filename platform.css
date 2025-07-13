@@ -1,0 +1,114 @@
+ :root {
+      --bg: #0d0d0d;
+      --fg: #ffffff;
+      --accent: #e50914;
+      --secondary: #1f1f1f;
+      --font-main: 'Montserrat', sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-main);
+      background-color: var(--bg);
+      color: var(--fg);
+    }
+ 
+    .updates-form {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+
+    .modal-content {
+      background: var(--secondary);
+      padding: 2rem;
+      border-radius: 1rem;
+      max-width: 500px;
+      width: 100%;
+      color: var(--fg);
+    }
+
+    .modal-content input,
+    .modal-content select {
+      width: 100%;
+      margin-bottom: 1rem;
+      padding: 0.5rem;
+      border-radius: 0.375rem;
+      border: none;
+      color: black;
+    }
+
+    .close-btn {
+      float: right;
+      cursor: pointer;
+      font-size: 1.5rem;
+    }
+
+    .subscribe button {
+      background-color: var(--accent);
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 0.375rem;
+      margin-top: 1rem;
+    }
+
+    #shopmore{
+      cursor: pointer;
+      border-radius: 1%;
+      border: none;
+      background-color: var(--accent);
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 0.375rem;
+      margin-top: 1rem;
+      position: relative;
+      bottom: 20px;
+      right: -45%;
+      transition: background-color 0.3s ease;
+         
+    }
+
+    #shopmore:hover {
+      background-color: whitesmoke;
+        
+    }
+    .animate-slide {
+      animation: slide 20s linear infinite;
+    }
+
+    @keyframes slide {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+
+    #parallaxCategorySlider {
+    will-change: transform;
+    transition: transform 0.1s linear;
+  }
+
+    #parallaxCategorySlider:hover {
+      transform: scale(1.05);
+    }
+
+    .category-item {
+      transition: transform 0.3s ease;
+    }
+
+    .category-item:hover {
+      transform: scale(1.1);
+    }   
+

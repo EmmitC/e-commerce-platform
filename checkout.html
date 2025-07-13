@@ -1,0 +1,128 @@
+<!-- checkout.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Checkout - Axios Apparel</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/@fortawesome/fontawesome-free@6.4.0/js/all.min.js" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="platform.css">
+  <style></style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="bg-[var(--secondary)] sticky top-0 z-50 px-6 py-4 flex justify-between items-center">
+    <div class="text-xl font-bold">Axios</div>
+    <div class="hidden md:flex space-x-6">
+      <a href="indexV4.html#home" class="hover:text-[var(--accent)]"><i class="fas fa-house"></i></a>
+      <a href="index.html#shop" class="hover:text-[var(--accent)]"><i class="fas fa-store"></i></a>
+      <a href="index.html#about" class="hover:text-[var(--accent)]"><i class="fas fa-circle-info"></i></a>
+      <a href="index.html#contact" class="hover:text-[var(--accent)]"><i class="fas fa-phone"></i></a>
+      <a href="login.html" class="hover:text-[var(--accent)]"><i class="fas fa-user"></i></a>
+      <button onclick="toggleForm()" class="hover:text-[var(--accent)]"><i class="fas fa-bell"></i></button>
+      <a href="checkout.html" class="hover:text-[var(--accent)]"><i class="fas fa-cart-shopping"></i></a>
+    </div>
+    <div class="md:hidden text-xl" onclick="toggleMenu()">
+      <i class="fas fa-bars"></i>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="md:hidden hidden bg-[var(--secondary)] px-6 py-4 space-y-2">
+    <a href="indexV4.html#home" class="block hover:text-[var(--accent)]"><i class="fas fa-house"></i> Home</a>
+    <a href="index.html#shop" class="block hover:text-[var(--accent)]"><i class="fas fa-store"></i> Shop</a>
+    <a href="index.html#about" class="block hover:text-[var(--accent)]"><i class="fas fa-circle-info"></i> About</a>
+    <a href="index.html#contact" class="block hover:text-[var(--accent)]"><i class="fas fa-envelope"></i> Contact</a>
+    <a href="login.html" class="block hover:text-[var(--accent)]"><i class="fas fa-user"></i> Login</a>
+    <button onclick="toggleForm()" class="block w-full text-left hover:text-[var(--accent)]"><i class="fas fa-bell"></i> Updates</button>
+    <a href="checkout.html" class="block hover:text-[var(--accent)]"><i class="fas fa-cart-shopping"></i> Checkout</a>
+  </div>
+
+  <!-- Checkout Content -->
+  <section class="max-w-4xl mx-auto px-6 py-20">
+    <h2 class="text-4xl font-bold mb-8 text-center">Your Cart</h2>
+    <div class="bg-[var(--secondary)] p-6 rounded-xl shadow-lg">
+      <div id="cartItems" class="space-y-4">
+        <!-- Cart items inserted dynamically -->
+      </div>
+      <div class="flex justify-between font-bold text-lg mt-4">
+        <span>Total</span>
+        <span id="cartTotal">$0.00</span>
+      </div>
+      <div class="mt-6">
+        <h3 class="text-lg font-semibold mb-2">Payment Method</h3>
+        <div class="flex gap-4">
+          <button class="bg-gray-800 px-4 py-2 rounded hover:bg-gray-600">Card</button>
+          <button class="bg-gray-800 px-4 py-2 rounded hover:bg-gray-600">PayPal</button>
+          <button class="bg-gray-800 px-4 py-2 rounded hover:bg-gray-600">Mobile Money</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <!-- Dynamic Checkout Section -->
+
+
+  <!-- Updates Form Modal -->
+  <div id="updatesForm" class="updates-form fixed inset-0 hidden items-center justify-center">
+    <div class="modal-content">
+      <span class="close-btn" onclick="toggleForm()">&times;</span>
+      <form id="emailUpdatesForm">
+        <h2 align="center">GET UPDATES</h2>
+        <label for="email">EMAIL</label>
+        <input type="email" id="email" required />
+        <label for="zip">ZIP OR POSTAL CODE</label>
+        <input type="number" id="zip" required />
+        <label for="country">COUNTRY</label>
+        <select id="country"><option>Uganda</option><option>Kenya</option><!-- Add more as needed --></select>
+        <div class="subscribe" align="center">
+          <h3>SUBSCRIBE TO EMAIL UPDATES:</h3>
+          <button type="submit">SUBSCRIBE</button>
+          <p class="text-xs mt-2">By subscribing, you agree to our terms.</p>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-[var(--secondary)] text-center py-6 text-sm">
+      <div class="flex justify-center space-x-6 mt-4">
+  <a href="https://facebook.com" target="_blank" class="hover:text-[var(--accent)] text-xl">
+    <i class="fab fa-facebook-f"></i>
+  </a>
+  <a href="https://twitter.com" target="_blank" class="hover:text-[var(--accent)] text-xl">
+    <i class="fab fa-x-twitter"></i>
+  </a>
+  <a href="https://instagram.com" target="_blank" class="hover:text-[var(--accent)] text-xl">
+    <i class="fab fa-instagram"></i>
+  </a>
+  <a href="https://youtube.com" target="_blank" class="hover:text-[var(--accent)] text-xl">
+    <i class="fab fa-youtube"></i>
+  </a>
+  <a href="https://tiktok.com" target="_blank" class="hover:text-[var(--accent)] text-xl">
+    <i class="fab fa-tiktok"></i>
+  </a>
+</div>
+    <p>&copy; <span id="year"></span> Axios Apparel. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    function toggleMenu() {
+      document.getElementById('mobileMenu').classList.toggle('hidden');
+    }
+  </script>
+   <script src="form.js"></script>
+   <script src="loadProducts.js"></script>
+   <script src="cart.js"></script>
+   <script src="updates.js"></script>
+   <script src="checkout.js"></script>
+   <script src="navbar.js"></script>
+
+</body>
+</html>
