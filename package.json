@@ -1,0 +1,17 @@
+{
+  "name": "axios-apparel",
+  "version": "1.0.0",
+  "description": "Axios Apparel E-commerce Website",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx serve -s . -l 3000",
+    "start": "npx serve -s . -l 3000",
+    "build": "echo 'Static site - no build needed'"
+  },
+  "keywords": ["ecommerce", "apparel", "fashion"],
+  "author": "Axios Apparel",
+  "license": "MIT",
+  "devDependencies": {
+    "serve": "^14.2.1"
+  }
+}
