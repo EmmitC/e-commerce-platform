@@ -9,6 +9,7 @@
   <script src="https://unpkg.com/@fortawesome/fontawesome-free@6.4.0/js/all.min.js" crossorigin="anonymous"></script>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="platform.css">
+  <link rel="stylesheet" href="css/styles.css">
   <style></style>
 </head>
 
@@ -42,22 +43,112 @@
   </div>
 
   <!-- Checkout Content -->
-  <section class="max-w-4xl mx-auto px-6 py-20">
+  <section class="max-w-6xl mx-auto px-6 py-20">
     <h2 class="text-4xl font-bold mb-8 text-center">Your Cart</h2>
-    <div class="bg-[var(--secondary)] p-6 rounded-xl shadow-lg">
-      <div id="cartItems" class="space-y-4">
-        <!-- Cart items inserted dynamically -->
+    
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <!-- Cart Items -->
+      <div class="lg:col-span-2">
+        <div class="bg-[var(--secondary)] p-6 rounded-xl shadow-lg">
+          <h3 class="text-xl font-semibold mb-4">Cart Items</h3>
+          <div id="cartItems">
+            <!-- Cart items inserted dynamically -->
+          </div>
+        </div>
       </div>
-      <div class="flex justify-between font-bold text-lg mt-4">
-        <span>Total</span>
-        <span id="cartTotal">$0.00</span>
-      </div>
-      <div class="mt-6">
-        <h3 class="text-lg font-semibold mb-2">Payment Method</h3>
-        <div class="flex gap-4">
-          <button class="bg-gray-800 px-4 py-2 rounded hover:bg-gray-600">Card</button>
-          <button class="bg-gray-800 px-4 py-2 rounded hover:bg-gray-600">PayPal</button>
-          <button class="bg-gray-800 px-4 py-2 rounded hover:bg-gray-600">Mobile Money</button>
+
+      <!-- Order Summary & Payment -->
+      <div class="lg:col-span-1">
+        <div class="bg-[var(--secondary)] p-6 rounded-xl shadow-lg sticky top-24">
+          <h3 class="text-xl font-semibold mb-4">Order Summary</h3>
+          
+          <div class="space-y-3 mb-6">
+            <div class="flex justify-between">
+              <span>Subtotal:</span>
+              <span id="cartSubtotal">$0.00</span>
+            </div>
+            <div class="flex justify-between">
+              <span>Tax (8%):</span>
+              <span id="cartTax">$0.00</span>
+            </div>
+            <div class="border-t border-gray-600 pt-3">
+              <div class="flex justify-between font-bold text-lg">
+                <span>Total:</span>
+                <span id="cartTotal">$0.00</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Payment Methods -->
+          <div class="mb-6">
+            <h4 class="text-lg font-semibold mb-3">Payment Method</h4>
+            <div class="payment-methods">
+              <button class="payment-method active" data-method="card">
+                <i class="fas fa-credit-card mb-2"></i>
+                <div>Credit Card</div>
+              </button>
+              <button class="payment-method" data-method="paypal">
+                <i class="fab fa-paypal mb-2"></i>
+                <div>PayPal</div>
+              </button>
+              <button class="payment-method" data-method="mobile">
+                <i class="fas fa-mobile-alt mb-2"></i>
+                <div>Mobile Money</div>
+              </button>
+            </div>
+          </div>
+
+          <!-- Payment Forms -->
+          <div id="cardForm" class="payment-form" style="display: block;">
+            <div class="form-group">
+              <label for="cardNumber">Card Number</label>
+              <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19">
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+              <div class="form-group">
+                <label for="expiryDate">Expiry Date</label>
+                <input type="text" id="expiryDate" placeholder="MM/YY" maxlength="5">
+              </div>
+              <div class="form-group">
+                <label for="cvv">CVV</label>
+                <input type="text" id="cvv" placeholder="123" maxlength="4">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="cardName">Cardholder Name</label>
+              <input type="text" id="cardName" placeholder="John Doe">
+            </div>
+          </div>
+
+          <div id="paypalForm" class="payment-form">
+            <p class="text-center text-gray-400 mb-4">You will be redirected to PayPal to complete your payment.</p>
+            <button type="button" id="paypalBtn" class="btn btn-primary w-full">
+              <i class="fab fa-paypal mr-2"></i>
+              Continue with PayPal
+            </button>
+          </div>
+
+          <div id="mobileForm" class="payment-form">
+            <div class="form-group">
+              <label for="mobileProvider">Provider</label>
+              <select id="mobileProvider">
+                <option value="mtn">MTN Mobile Money</option>
+                <option value="airtel">Airtel Money</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="phoneNumber">Phone Number</label>
+              <input type="tel" id="phoneNumber" placeholder="+256 700 000 000">
+            </div>
+          </div>
+
+          <!-- Checkout Button -->
+          <form id="checkoutForm">
+            <button type="submit" class="btn btn-primary w-full checkout-btn">
+              <i class="fas fa-lock mr-2"></i>
+              Complete Order
+            </button>
+          </form>
         </div>
       </div>
     </div>
@@ -118,10 +209,10 @@
     }
   </script>
    <script src="form.js"></script>
-   <script src="loadProducts.js"></script>
-   <script src="cart.js"></script>
+   <script src="js/cart.js"></script>
+   <script src="js/checkout.js"></script>
+   <script src="js/animations.js"></script>
    <script src="updates.js"></script>
-   <script src="checkout.js"></script>
    <script src="navbar.js"></script>
 
 </body>
