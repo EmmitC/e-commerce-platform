@@ -1,0 +1,124 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "title": "Maze Official Logo Tee",
+      "price": 25,
+      "category": "men",
+      "colors": ["#000000", "#ffffff", "#e50914"],
+      "sizes": ["S", "M", "L", "XL"],
+      "image": "./Merch and T-Shirts/maze-official-logo-tee.jpg",
+      "description": "Premium cotton tee featuring the iconic Maze logo. Perfect for everyday wear.",
+      "stock": 15,
+      "featured": true
+    },
+    {
+      "id": 2,
+      "title": "Unisex Green Maze T-Shirt",
+      "price": 30,
+      "category": "unisex",
+      "colors": ["#4a5d23", "#000000"],
+      "sizes": ["XS", "S", "M", "L", "XL", "XXL"],
+      "image": "./Merch and T-Shirts/Maze_T-shirt-Army_Green.jpg",
+      "description": "Army green unisex tee with bold Maze branding. Comfortable fit for all.",
+      "stock": 22,
+      "featured": true
+    },
+    {
+      "id": 3,
+      "title": "Women's Premium Hoodie",
+      "price": 65,
+      "category": "women",
+      "colors": ["#8b4513", "#000000", "#ffffff"],
+      "sizes": ["XS", "S", "M", "L", "XL"],
+      "image": "./Merch and T-Shirts/PosterMaker_18012025_150305.jpg",
+      "description": "Luxurious hoodie with premium materials and contemporary design.",
+      "stock": 8,
+      "featured": false
+    },
+    {
+      "id": 4,
+      "title": "Black Maze Hoodie",
+      "price": 55,
+      "category": "unisex",
+      "colors": ["#000000", "#333333"],
+      "sizes": ["S", "M", "L", "XL", "XXL"],
+      "image": "./Merch and T-Shirts/Maze_Hoodie-Black.jpg",
+      "description": "Classic black hoodie with embroidered Maze logo. Ultimate comfort meets style.",
+      "stock": 12,
+      "featured": true
+    },
+    {
+      "id": 5,
+      "title": "Grey Maze Hoodie",
+      "price": 55,
+      "category": "unisex",
+      "colors": ["#808080", "#a9a9a9"],
+      "sizes": ["S", "M", "L", "XL"],
+      "image": "./Merch and T-Shirts/Maze_Hoodie-Grey.jpg",
+      "description": "Comfortable grey hoodie perfect for casual outings and streetwear looks.",
+      "stock": 10,
+      "featured": false
+    },
+    {
+      "id": 6,
+      "title": "Maze Snapback Hat",
+      "price": 35,
+      "category": "accessories",
+      "colors": ["#000000", "#ffffff"],
+      "sizes": ["One Size"],
+      "image": "./Merch and T-Shirts/Maze_Snapback-Hat-Black.jpg",
+      "description": "Premium snapback hat with 3D embroidered logo. Adjustable fit.",
+      "stock": 25,
+      "featured": true
+    },
+    {
+      "id": 7,
+      "title": "White Maze T-Shirt",
+      "price": 28,
+      "category": "unisex",
+      "colors": ["#ffffff", "#f5f5f5"],
+      "sizes": ["XS", "S", "M", "L", "XL"],
+      "image": "./Merch and T-Shirts/Maze_T-shirt-white.jpg",
+      "description": "Clean white tee with minimalist Maze branding. Essential wardrobe piece.",
+      "stock": 18,
+      "featured": false
+    },
+    {
+      "id": 8,
+      "title": "Statement Graphic Tee",
+      "price": 32,
+      "category": "unisex",
+      "colors": ["#000000", "#e50914"],
+      "sizes": ["S", "M", "L", "XL"],
+      "image": "./Merch and T-Shirts/shut-the-fuck-up-tee.jpg",
+      "description": "Bold statement piece for those who aren't afraid to stand out.",
+      "stock": 6,
+      "featured": false
+    },
+    {
+      "id": 9,
+      "title": "Premium Silver Ring",
+      "price": 85,
+      "category": "accessories",
+      "colors": ["#c0c0c0"],
+      "sizes": ["6", "7", "8", "9", "10", "11"],
+      "image": "./products/silverring.jpg",
+      "description": "Handcrafted sterling silver ring with unique Axios design elements.",
+      "stock": 4,
+      "featured": true
+    },
+    {
+      "id": 10,
+      "title": "Comfort Sweatshirt",
+      "price": 48,
+      "category": "unisex",
+      "colors": ["#4682b4", "#000000", "#808080"],
+      "sizes": ["S", "M", "L", "XL", "XXL"],
+      "image": "./products/sweatshirt.jpg",
+      "description": "Ultra-soft sweatshirt perfect for lounging or casual outings.",
+      "stock": 14,
+      "featured": false
+    }
+  ]
+}

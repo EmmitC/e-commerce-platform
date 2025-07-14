@@ -9,6 +9,7 @@
   <script src="https://unpkg.com/@fortawesome/fontawesome-free@6.4.0/js/all.min.js" crossorigin="anonymous"></script>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="platform.css">
+  <link rel="stylesheet" href="css/styles.css">
   <style>
     .updates-form {
       background: rgba(0, 0, 0, 0.7);
@@ -90,11 +91,34 @@
   <!-- Shop Content -->
   <main class="flex-grow px-6 py-10 max-w-7xl mx-auto">
     <h1 class="text-4xl font-bold text-center mb-10">Shop Our Latest</h1>
-    <div class="flex flex-wrap justify-center gap-4 mb-10">
-      <button class="bg-[var(--accent)] hover:bg-red-700 text-white px-4 py-2 rounded">All</button>
-      <button class="bg-[var(--secondary)] hover:bg-[var(--accent)] px-4 py-2 rounded">Men</button>
-      <!-- add more buttons -->
+    
+    <!-- Filter and Search Bar -->
+    <div class="filter-bar mb-10">
+      <input type="text" id="searchInput" placeholder="Search products..." class="search-input">
+      <select id="categoryFilter" class="sort-select">
+        <option value="all">All Categories</option>
+        <option value="men">Men's Wear</option>
+        <option value="women">Women's Wear</option>
+        <option value="unisex">Unisex</option>
+        <option value="accessories">Accessories</option>
+      </select>
+      <select id="sortSelect" class="sort-select">
+        <option value="featured">Featured</option>
+        <option value="price-low">Price: Low to High</option>
+        <option value="price-high">Price: High to Low</option>
+        <option value="name">Name A-Z</option>
+      </select>
     </div>
+
+    <!-- Category Buttons -->
+    <div class="category-buttons mb-10">
+      <button class="category-btn active" data-category="all">All</button>
+      <button class="category-btn" data-category="men">Men</button>
+      <button class="category-btn" data-category="women">Women</button>
+      <button class="category-btn" data-category="unisex">Unisex</button>
+      <button class="category-btn" data-category="accessories">Accessories</button>
+    </div>
+    
     <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
       <!-- Dynamically populated by loadProducts.js -->
     </div>
@@ -365,10 +389,10 @@
 
   <!-- External Scripts -->
   <script src="form.js"></script>
-  <script src="loadProducts.js"></script>
-  <script src="cart.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/products.js"></script>
+  <script src="js/animations.js"></script>
   <script src="updates.js"></script>
-  <script src="checkout.js"></script>
   <script src="navbar.js"></script>
 
 </body>
