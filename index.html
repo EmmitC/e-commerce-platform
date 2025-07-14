@@ -478,42 +478,17 @@
       document.getElementById('mobileMenu').classList.toggle('hidden');
     }
 
+    const parallaxSlider = document.getElementById("parallaxCategorySlider");
 
-  const slider = document.getElementById("categorySlider");
-let scrollPosition = 0;
+    function handleParallaxScroll() {
+      const scrollY = window.scrollY;
+      const offset = scrollY * 0.3; // Adjust speed here
+      parallaxSlider.style.transform = `translateX(-${offset}px)`;
+    }
 
-function autoSlide() {
-  const cardWidth = 306; // 300px + 6px gap
-  scrollPosition += cardWidth;
-  if (scrollPosition >= slider.scrollWidth - slider.clientWidth) {
-    scrollPosition = 0;
-  }
-  slider.scrollTo({ left: scrollPosition, behavior: "smooth" });
-}
-
-const container = document.getElementById("sliderContainer");
-
-// Auto slide every 3 seconds
-let sliderInterval = setInterval(autoSlide, 3000);
-
-// Pause on hover
-container.addEventListener("mouseenter", () => clearInterval(sliderInterval));
-container.addEventListener("mouseleave", () => {
-  sliderInterval = setInterval(autoSlide, 3000);
-});
-
-
-const parallaxSlider = document.getElementById("parallaxCategorySlider");
-
-  function handleParallaxScroll() {
-    const scrollY = window.scrollY;
-    const offset = scrollY * 0.3; // Adjust speed here
-    parallaxSlider.style.transform = `translateX(-${offset}px)`;
-  }
-
-  window.addEventListener("scroll", () => {
-    window.requestAnimationFrame(handleParallaxScroll);
-  });
+    window.addEventListener("scroll", () => {
+      window.requestAnimationFrame(handleParallaxScroll);
+    });
 
   </script>
 </body>
