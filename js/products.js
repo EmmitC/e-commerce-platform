@@ -16,7 +16,7 @@ class ProductManager {
 
   async loadProducts() {
     try {
-      const response = await fetch('./data/products.json');
+      const response = await fetch('../data/products.json');
       const data = await response.json();
       this.products = data.products;
       this.filteredProducts = [...this.products];
@@ -283,6 +283,7 @@ class ProductModal {
     colorOptions.innerHTML = product.colors.map(color => `
       <button class="color-option ${color === this.selectedColor ? 'selected' : ''}" 
               style="background-color: ${color}" 
+              data-color="${color}"
               onclick="selectColor('${color}')"></button>
     `).join('');
 
@@ -304,9 +305,15 @@ class ProductModal {
 
   selectColor(color) {
     this.selectedColor = color;
+
     document.querySelectorAll('.color-option').forEach(btn => {
-      btn.classList.toggle('selected', btn.style.backgroundColor === color);
+      btn.classList.toggle('selected', btn.getAttribute('data-color') === color);
     });
+
+    // Update image based on selected color
+    const colorImage = this.currentProduct.colorImages?.[color];
+    document.getElementById('modalProductImage').src = colorImage || this.currentProduct.image;
+
   }
 
   addToCart() {

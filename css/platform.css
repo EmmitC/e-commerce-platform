@@ -1,6 +1,12 @@
-/* Enhanced Styles for Axios Apparel */
+/*
+ * Combined Styles for Axios Apparel
+ *
+ * This file merges two separate CSS files, resolving conflicts
+ * and consolidating styles for a more cohesive and maintainable
+ * stylesheet.
+ */
 
-/* CSS Variables */
+/* --- CSS Variables --- */
 :root {
   --bg: #0d0d0d;
   --fg: #ffffff;
@@ -16,7 +22,7 @@
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Base Styles */
+/* --- Base Styles --- */
 * {
   margin: 0;
   padding: 0;
@@ -35,7 +41,7 @@ body {
   overflow-x: hidden;
 }
 
-/* Loading Animation */
+/* --- Loading Animation --- */
 body:not(.loaded) {
   overflow: hidden;
 }
@@ -54,7 +60,7 @@ body:not(.loaded)::before {
   justify-content: center;
 }
 
-/* Navigation Enhancements */
+/* --- Navigation Enhancements --- */
 nav {
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -85,7 +91,60 @@ nav.scrolled {
   font-weight: bold;
 }
 
-/* Product Cards */
+#emailUpdatesForm{
+   .updates-form {
+      background: rgba(0, 0, 0, 0.7);
+      display: flex;
+      z-index: 999;
+    }
+
+    .modal-content {
+      background: #000000;
+      padding: 2rem;
+      border-radius: 10px;
+      width: 100%;
+      max-width: 800px;
+    }
+
+    .close-btn {
+      float: right;
+      font-size: 1.5rem;
+      cursor: pointer;
+      border: none;
+      color: white;
+    }
+
+    .subscribe button {
+      margin-top: 10px;
+      background-color: var(--accent, #e11d48);
+      color: white;
+      padding: 8px 16px;
+      border-radius: 8px;
+    }
+    .subscribe button:hover {
+      background-color: var(--fg);
+      color: var(--accent);
+    }
+
+    input,
+textarea,
+select {
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: var(--background);
+  border: 1px solid white;
+  color: white;
+}
+
+option{
+  background-color: var(--secondary);
+  color: var(--fg)
+  ;}
+}
+
+/* --- Product Cards --- */
 .product-card {
   background: var(--secondary);
   border-radius: var(--border-radius);
@@ -130,7 +189,7 @@ nav.scrolled {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.7);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -139,7 +198,7 @@ nav.scrolled {
 }
 
 .product-card:hover .product-overlay {
-  opacity: 0.75;
+  opacity: 1;
 }
 
 .quick-view-btn {
@@ -196,9 +255,14 @@ nav.scrolled {
 }
 
 .color-swatch {
+  display: inline-block;
   width: 20px;
   height: 20px;
   border-radius: 50%;
+  margin-right: 6px;
+  border: 1px solid #ddd;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+  background-color: transparent;
   border: 2px solid rgba(255, 255, 255, 0.3);
   cursor: pointer;
   transition: var(--transition);
@@ -207,6 +271,11 @@ nav.scrolled {
 .color-swatch:hover {
   transform: scale(1.2);
   border-color: var(--accent);
+}
+
+.color-swatch.selected {
+  outline: 2px solid var(--success);
+  transform: scale(1.2);
 }
 
 .product-price-stock {
@@ -268,7 +337,7 @@ nav.scrolled {
   cursor: not-allowed;
 }
 
-/* Product Modal */
+/* --- Product Modal --- */
 .product-modal {
   position: fixed;
   top: 0;
@@ -282,13 +351,11 @@ nav.scrolled {
   opacity: 0;
   visibility: hidden;
   transition: var(--transition);
-  pointer-events: none; /* prevent clicks when inactive */
 }
 
 .product-modal.active {
   opacity: 1;
   visibility: visible;
-  pointer-events: auto;
 }
 
 .modal-backdrop {
@@ -297,30 +364,18 @@ nav.scrolled {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 1; /* Ensure it's behind the content */
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.8);
   backdrop-filter: blur(5px);
 }
 
 .modal-content {
-  position: relative;
-  z-index: 2; /* Above the blurred backdrop */
   background: var(--secondary);
   border-radius: var(--border-radius);
   max-width: 800px;
   width: 90%;
   max-height: 90vh;
   overflow-y: auto;
-  transform: scale(0.9);
-  transition: var(--transition);
-}
-
-.modal-content-form {
   position: relative;
-  z-index: 1; /* Above the blurred backdrop */
-  background: var(--bg);
-  border-radius: var(--border-radius);
-  overflow-y: auto;
   transform: scale(0.9);
   transition: var(--transition);
 }
@@ -382,7 +437,8 @@ nav.scrolled {
   font-weight: 600;
 }
 
-.size-options, .color-options {
+.size-options,
+.color-options {
   display: flex;
   gap: 10px;
   margin-bottom: 20px;
@@ -398,7 +454,8 @@ nav.scrolled {
   transition: var(--transition);
 }
 
-.size-option:hover, .size-option.selected {
+.size-option:hover,
+.size-option.selected {
   border-color: var(--accent);
   background: var(--accent);
 }
@@ -412,7 +469,8 @@ nav.scrolled {
   transition: var(--transition);
 }
 
-.color-option:hover, .color-option.selected {
+.color-option:hover,
+.color-option.selected {
   border-color: var(--accent);
   transform: scale(1.1);
 }
@@ -434,7 +492,7 @@ nav.scrolled {
   background: #c40812;
 }
 
-/* Cart Styles */
+/* --- Cart Styles --- */
 .cart-item {
   display: grid;
   grid-template-columns: 80px 1fr auto auto auto;
@@ -512,7 +570,7 @@ nav.scrolled {
   background: #c82333;
 }
 
-/* Checkout Styles */
+/* --- Checkout Styles --- */
 .payment-methods {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -531,7 +589,8 @@ nav.scrolled {
   text-align: center;
 }
 
-.payment-method:hover, .payment-method.active {
+.payment-method:hover,
+.payment-method.active {
   border-color: var(--accent);
   background: rgba(229, 9, 20, 0.1);
 }
@@ -554,7 +613,8 @@ nav.scrolled {
   font-weight: 600;
 }
 
-.form-group input, .form-group select {
+.form-group input,
+.form-group select {
   width: 100%;
   padding: 12px;
   border: 1px solid var(--tertiary);
@@ -564,12 +624,13 @@ nav.scrolled {
   transition: var(--transition);
 }
 
-.form-group input:focus, .form-group select:focus {
+.form-group input:focus,
+.form-group select:focus {
   outline: none;
   border-color: var(--accent);
 }
 
-/* Animations */
+/* --- Animations --- */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -603,6 +664,31 @@ nav.scrolled {
   }
 }
 
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes ripple-animation {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+@keyframes sk-bouncedelay {
+  0%, 80%, 100% {
+    transform: scale(0);
+  }
+  40% {
+    transform: scale(1.0);
+  }
+}
+
 .fade-in {
   animation: fadeInUp 0.6s ease-out forwards;
 }
@@ -615,7 +701,11 @@ nav.scrolled {
   animation: slideInRight 0.6s ease-out forwards;
 }
 
-/* Ripple Effect */
+.animate-slide {
+  animation: slide 20s linear infinite;
+}
+
+/* --- Ripple Effect --- */
 .ripple {
   position: absolute;
   border-radius: 50%;
@@ -625,15 +715,9 @@ nav.scrolled {
   pointer-events: none;
 }
 
-@keyframes ripple-animation {
-  to {
-    transform: scale(4);
-    opacity: 0;
-  }
-}
-
-/* Notifications */
-.cart-notification, .notification {
+/* --- Notifications --- */
+.cart-notification,
+.notification {
   position: fixed;
   top: 20px;
   right: 20px;
@@ -647,7 +731,8 @@ nav.scrolled {
   transition: var(--transition);
 }
 
-.cart-notification.show, .notification.show {
+.cart-notification.show,
+.notification.show {
   transform: translateX(0);
 }
 
@@ -663,7 +748,7 @@ nav.scrolled {
   background: #17a2b8;
 }
 
-/* Loading Spinner */
+/* --- Loading Spinner --- */
 .loading-spinner {
   display: flex;
   justify-content: center;
@@ -692,16 +777,7 @@ nav.scrolled {
   animation-delay: -0.16s;
 }
 
-@keyframes sk-bouncedelay {
-  0%, 80%, 100% {
-    transform: scale(0);
-  }
-  40% {
-    transform: scale(1.0);
-  }
-}
-
-/* Success Modal */
+/* --- Success Modal --- */
 .success-modal {
   position: fixed;
   top: 0;
@@ -737,7 +813,7 @@ nav.scrolled {
   margin-bottom: 20px;
 }
 
-/* Responsive Design */
+/* --- Responsive Design --- */
 @media (max-width: 768px) {
   .modal-body {
     grid-template-columns: 1fr;
@@ -759,21 +835,30 @@ nav.scrolled {
   .payment-methods {
     grid-template-columns: 1fr;
   }
+
+  .filter-bar {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
 }
 
-/* Empty States */
-.empty-cart, .no-products, .error-message {
+/* --- Empty States --- */
+.empty-cart,
+.no-products,
+.error-message {
   text-align: center;
   padding: 60px 20px;
   grid-column: 1 / -1;
 }
 
-.empty-cart i, .no-products i, .error-message i {
+.empty-cart i,
+.no-products i,
+.error-message i {
   display: block;
   margin-bottom: 20px;
 }
 
-/* Button Styles */
+/* --- Button Styles --- */
 .btn {
   display: inline-block;
   padding: 12px 24px;
@@ -807,7 +892,7 @@ nav.scrolled {
   background: var(--tertiary);
 }
 
-/* Category Filter Buttons */
+/* --- Category Filter Buttons --- */
 .category-buttons {
   display: flex;
   flex-wrap: wrap;
@@ -827,13 +912,14 @@ nav.scrolled {
   font-weight: 600;
 }
 
-.category-btn:hover, .category-btn.active {
+.category-btn:hover,
+.category-btn.active {
   background: var(--accent);
   border-color: var(--accent);
   color: white;
 }
 
-/* Search and Filter Bar */
+/* --- Search and Filter Bar --- */
 .filter-bar {
   display: grid;
   grid-template-columns: 1fr auto auto;
@@ -865,63 +951,51 @@ nav.scrolled {
   cursor: pointer;
 }
 
+/* --- Additional Styles from Second File --- */
 
-.section {
-  padding: 80px 20px;
-  text-align: center;
-}
 
-.section-title {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-}
 
-.section-description {
-  font-size: 1.1rem;
-  max-width: 800px;
-  margin: 0 auto 40px;
-  line-height: 1.8;
-}
 
-.charity-impact, .testimonial-grid, .cause-grid {
-  display: flex;
-  gap: 30px;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.impact-item, .testimonial-card, .cause-card {
-  background: transparent;
-  padding: 20px;
-  border-radius: 12px;
-  max-width: 300px;
+#shopmore {
   cursor: pointer;
-}
-
-.cause-card img {
-  max-width: 100%;
-  border-radius: 8px;
-  margin-bottom: 15px;
-}
-
-.cta-button {
-  background: #e50914;
+  border-radius: 1%;
+  border: none;
+  background-color: var(--accent);
   color: white;
-  padding: 15px 30px;
-  font-weight: bold;
-  text-decoration: none;
-  border-radius: 8px;
-  transition: 0.3s;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  margin-top: 1rem;
+  position: relative;
+  bottom: 20px;
+  right: -45%;
+  transition: background-color 0.3s ease;
 }
 
-.cta-button:hover {
-  background: #c40812;
+#shopmore:hover {
+  background-color: whitesmoke;
 }
 
+#parallaxCategorySlider {
+  will-change: transform;
+  transition: transform 0.1s linear;
+}
 
-@media (max-width: 768px) {
-  .filter-bar {
-    grid-template-columns: 1fr;
-    gap: 15px;
-  }
+#parallaxCategorySlider:hover {
+  transform: scale(1.05);
+}
+
+.category-item {
+  transition: transform 0.3s ease;
+}
+
+.category-item:hover {
+  transform: scale(1.1);
+}
+
+#quickViewModal *,
+#quickViewModal *::before,
+#quickViewModal *::after {
+  filter: none !important;
+  backdrop-filter: none !important;
+  opacity: 1 !important;
 }

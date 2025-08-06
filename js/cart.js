@@ -142,3 +142,42 @@ window.removeFromCart = (productId, size, color) => {
 window.updateQuantity = (productId, size, color, quantity) => {
   cartManager.updateQuantity(productId, size, color, quantity);
 };
+
+
+function openQuickView(product) {
+  document.getElementById('quickViewImg').src = product.image;
+  document.getElementById('quickViewTitle').innerText = product.title;
+  document.getElementById('quickViewDesc').innerText = product.description;
+  document.getElementById('quickViewModal').classList.remove('hidden');
+  window.currentProduct = product;
+}
+
+function closeQuickView() {
+  document.getElementById('quickViewModal').classList.add('hidden');
+}
+
+function addToCartFromQuickView() {
+  addToCart(window.currentProduct);
+  closeQuickView();
+}
+
+
+function addToCart(product) {
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  cart.push(product);
+  localStorage.setItem('cart', JSON.stringify(cart));
+  updateCartCount();
+}
+
+function updateCartCount() {
+  const cart = JSON.parse(localStorage.getItem('cart')) || [];
+  document.getElementById('cartCount').innerText = cart.length;
+  document.getElementById('cartCount').style.display = 'inline';
+  const mobileCount = document.getElementById('cartCountMobile');
+  if (mobileCount) {
+    mobileCount.innerText = cart.length;
+    mobileCount.style.display = 'inline';
+  }
+}
+
+window.onload = updateCartCount;

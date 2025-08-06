@@ -2,125 +2,68 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Shop - Axios Apparel</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up - Axios Apparel</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/@fortawesome/fontawesome-free@6.4.0/js/all.min.js" crossorigin="anonymous"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="platform.css">
-  <link rel="stylesheet" href="css/styles.css">
-  <style>
-    .updates-form {
-      background: rgba(0, 0, 0, 0.7);
-      display: flex;
-      z-index: 999;
-    }
-
-    .modal-content {
-      background: white;
-      padding: 2rem;
-      border-radius: 8px;
-      width: 90%;
-      max-width: 400px;
-    }
-
-    .close-btn {
-      float: right;
-      font-size: 1.5rem;
-      cursor: pointer;
-    }
-
-    .subscribe button {
-      margin-top: 10px;
-      background-color: var(--accent, #e11d48);
-      color: white;
-      padding: 8px 16px;
-      border-radius: 4px;
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/platform.css">
+ 
+  
 </head>
 
 <body class="bg-[var(--bg)] text-[var(--fg)] min-h-screen flex flex-col">
-
   <!-- Navbar -->
+   <!-- Navbar -->
   <nav class="bg-[var(--secondary)] sticky top-0 z-50 px-6 py-4 flex justify-between items-center">
     <div class="text-xl font-bold">Axios</div>
     <div class="hidden md:flex space-x-6">
-      <a href="index.html" class="hover:text-[var(--accent)]"><i class="fas fa-house"></i></a>
-      <a href="shop.html" class="hover:text-[var(--accent)]"><i class="fas fa-store"></i></a>
-      <a href="login.html" class="hover:text-[var(--accent)]"><i class="fas fa-user"></i></a>
-      <a href="signup.html" class="hover:text-[var(--accent)]"><i class="fas fa-user-plus"></i></a>
+      <a href="#home" class="hover:text-[var(--accent)]"><i class="fas fa-house"></i></a>
+      <a href="#shop" class="hover:text-[var(--accent)]"><i class="fas fa-store"></i></a>
+      <a href="about.html" class="hover:text-[var(--accent)]"><i class="fas fa-circle-info"></i></a>
+      <a href="about.html" class="block hover:text-[var(--accent)]"><i class="fas fa-blog"></i></a>
+      <a href="#contact" class="hover:text-[var(--accent)]"><i class="fas fa-phone"></i></a>
+      <a href="/html/login.html" class="hover:text-[var(--accent)]"><i class="fas fa-user"></i></a>
       <button onclick="toggleForm()" class="hover:text-[var(--accent)]"><i class="fas fa-bell"></i></button>
-      <a href="checkout.html" class="hover:text-[var(--accent)]"><i class="fas fa-cart-shopping"></i></a>
+      <a href="/html/checkout.html" class="hover:text-[var(--accent)] cart-icon">
+        <i class="fas fa-cart-shopping"></i>
+        <span id="cartCount" style="display: none;">0</span>
+      </a>
+      
+
     </div>
     <div class="md:hidden text-xl" onclick="toggleMenu()">
       <i class="fas fa-bars"></i>
     </div>
   </nav>
-
-  <!-- Mobile Menu -->
   <div id="mobileMenu" class="md:hidden hidden bg-[var(--secondary)] px-6 py-4 space-y-2">
-    <a href="index.html" class="block hover:text-[var(--accent)]"><i class="fas fa-house"></i> Home</a>
-    <a href="shop.html" class="block hover:text-[var(--accent)]"><i class="fas fa-store"></i> Shop</a>
+    <a href="#home" class="block hover:text-[var(--accent)]"><i class="fas fa-house"></i> Home</a>
+    <a href="#shop" class="block hover:text-[var(--accent)]"><i class="fas fa-store"></i> Shop</a>
+    <a href="about.html" class="block hover:text-[var(--accent)]"><i class="fas fa-circle-info"></i> About</a>
+    <a href="about.html" class="block hover:text-[var(--accent)]"><i class="fas fa-blog"></i>Blog</a>
+    <a href="#contact" class="block hover:text-[var(--accent)]"><i class="fas fa-envelope"></i> Contact</a>
     <a href="login.html" class="block hover:text-[var(--accent)]"><i class="fas fa-user"></i> Login</a>
-    <a href="signup.html" class="block hover:text-[var(--accent)]"><i class="fas fa-user-plus"></i> Sign Up</a>
     <button onclick="toggleForm()" class="block w-full text-left hover:text-[var(--accent)]"><i class="fas fa-bell"></i> Updates</button>
-    <a href="checkout.html" class="block hover:text-[var(--accent)]"><i class="fas fa-cart-shopping"></i> Checkout</a>
+    <a href="checkout.html" class="block hover:text-[var(--accent)] cart-icon">
+      <i class="fas fa-cart-shopping"></i> Checkout
+      <span id="cartCountMobile" style="display: none;">0</span>
+    </a>
+
+    
   </div>
 
-  <!-- Category Slider -->
-  <section class="w-full bg-[var(--bg)] py-10 px-4">
-    <h2 class="text-3xl md:text-4xl font-bold text-center mb-8">Shop by Category</h2>
-    <div class="overflow-hidden relative">
-      <div id="categorySlider" class="flex gap-6 transition-transform duration-700 ease-in-out w-max">
-        <!-- Replace or extend with your real images -->
-        <a href="shop.html?category=men" class="block min-w-[300px] max-w-[300px] hover:opacity-80">
-          <img src="./Merch and T-Shirts/maze-official-logo-tee.jpg" alt="Men's Wear" class="rounded-lg shadow-lg">
-          <p class="text-center mt-2 font-semibold">Men's Wear</p>
-        </a>
-        <a href="shop.html?category=women" class="block min-w-[300px] max-w-[300px] hover:opacity-80">
-          <img src="./Merch and T-Shirts/PosterMaker_18012025_150305.jpg" alt="Women's Wear" class="rounded-lg shadow-lg">
-          <p class="text-center mt-2 font-semibold">Women's Wear</p>
-        </a>
-        <!-- more categories... -->
-      </div>
-    </div>
-  </section>
-
-  <!-- Shop Content -->
-  <main class="flex-grow px-6 py-10 max-w-7xl mx-auto">
-    <h1 class="text-4xl font-bold text-center mb-10">Shop Our Latest</h1>
-    
-    <!-- Filter and Search Bar -->
-    <div class="filter-bar mb-10">
-      <input type="text" id="searchInput" placeholder="Search products..." class="search-input">
-      <select id="categoryFilter" class="sort-select">
-        <option value="all">All Categories</option>
-        <option value="men">Men's Wear</option>
-        <option value="women">Women's Wear</option>
-        <option value="unisex">Unisex</option>
-        <option value="accessories">Accessories</option>
-      </select>
-      <select id="sortSelect" class="sort-select">
-        <option value="featured">Featured</option>
-        <option value="price-low">Price: Low to High</option>
-        <option value="price-high">Price: High to Low</option>
-        <option value="name">Name A-Z</option>
-      </select>
-    </div>
-
-    <!-- Category Buttons -->
-    <div class="category-buttons mb-10">
-      <button class="category-btn active" data-category="all">All</button>
-      <button class="category-btn" data-category="men">Men</button>
-      <button class="category-btn" data-category="women">Women</button>
-      <button class="category-btn" data-category="unisex">Unisex</button>
-      <button class="category-btn" data-category="accessories">Accessories</button>
-    </div>
-    
-    <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-      <!-- Dynamically populated by loadProducts.js -->
+  <!-- Sign Up Form -->
+  <main class="flex-grow flex justify-center items-center px-4">
+    <div class="bg-[var(--secondary)] p-8 rounded-xl w-full max-w-md shadow-lg">
+      <h2 class="text-3xl font-bold mb-6 text-center">Create an Account</h2>
+      <form class="space-y-4">
+        <input type="text" placeholder="Full Name" class="w-full px-4 py-2 rounded bg-white text-black">
+        <input type="email" placeholder="Email" class="w-full px-4 py-2 rounded bg-white text-black">
+        <input type="password" placeholder="Password" class="w-full px-4 py-2 rounded bg-white text-black">
+        <button type="submit" class="w-full bg-[var(--accent)] text-white px-4 py-2 rounded hover:bg-red-700 transition">Sign Up</button>
+      </form>
+      <p class="mt-4 text-sm text-center">Already have an account? <a href="login.html" class="text-[var(--accent)] hover:underline">Login here</a>.</p>
     </div>
   </main>
 
@@ -129,15 +72,16 @@
     <div class="modal-content">
       <span class="close-btn" onclick="toggleForm()">&times;</span>
       <form id="emailUpdatesForm">
+
         <h2 align="center">GET UPDATES</h2>
         <label for="email">EMAIL</label>
         <input type="email" id="email" required />
         <label for="zip">ZIP OR POSTAL CODE</label>
         <input type="number" id="zip" required />
         <label for="country">COUNTRY</label>
-        <select id="country">
-          <option value="">Select---</option>
-          <option value="Afghanistan">Afghanistan</option>
+        <select name="country" id="country">
+  <option value="">Select---</option>
+  <option value="Afghanistan">Afghanistan</option>
   <option value="Albania">Albania</option>
   <option value="Algeria">Algeria</option>
   <option value="Andorra">Andorra</option>
@@ -333,67 +277,111 @@
   <option value="Yemen">Yemen</option>
   <option value="Zambia">Zambia</option>
   <option value="Zimbabwe">Zimbabwe</option>
-          <!-- Add more -->
         </select>
         <div class="subscribe" align="center">
           <h3>SUBSCRIBE TO EMAIL UPDATES:</h3>
-          <button type="submit">SUBSCRIBE</button>
+          <button type="submit" id="subscribe">SUBSCRIBE</button>
           <p class="text-xs mt-2">
             EMAILS WILL BE SENT BY OR ON BEHALF OF AXIOS APPAREL<br />
-            YOU MAY WITHDRAW YOUR CONSENT AT ANYTIME.
+            YOU MAY WITHDRAW YOUR CONSENT AT ANYTIME. PRIVACY POLICY / DO NOT SELL MY PERSONAL INFORMATION
           </p>
         </div>
       </form>
     </div>
   </div>
 
-  <!-- Footer with Social Media -->
-  <footer class="bg-[var(--secondary)] text-center py-6 text-sm">
-    <div class="flex justify-center space-x-6 mt-4 text-xl">
-      <a href="https://facebook.com" target="_blank" class="hover:text-[var(--accent)]"><i class="fab fa-facebook-f"></i></a>
-      <a href="https://twitter.com" target="_blank" class="hover:text-[var(--accent)]"><i class="fab fa-x-twitter"></i></a>
-      <a href="https://instagram.com" target="_blank" class="hover:text-[var(--accent)]"><i class="fab fa-instagram"></i></a>
-      <a href="https://youtube.com" target="_blank" class="hover:text-[var(--accent)]"><i class="fab fa-youtube"></i></a>
-      <a href="https://tiktok.com" target="_blank" class="hover:text-[var(--accent)]"><i class="fab fa-tiktok"></i></a>
-    </div>
+  <div id="quickViewModal" class="fixed inset-0 hidden z-50 flex items-center justify-center">
+  <!-- Overlay -->
+  <div class="absolute inset-0 bg-black bg-opacity-80" onclick="closeQuickView()"></div>
+
+  <!-- Modal Box -->
+  <div class="relative z-10 bg-white text-black rounded-lg w-96 p-6 shadow-xl">
+    <span class="absolute top-2 right-4 cursor-pointer text-2xl font-bold" onclick="closeQuickView()">×</span>
+    <img id="quickViewImg" src="" class="w-full rounded mb-4" />
+    <h3 id="quickViewTitle" class="text-xl font-bold mb-2"></h3>
+    <p id="quickViewDesc" class="mb-4 text-sm"></p>
+    <button class="bg-[var(--accent)] text-white px-4 py-2 rounded" onclick="addToCartFromQuickView()">Add to Cart</button>
+  </div>
+</div>
+
+<!-- Help Floating Button -->
+<button id="helpToggle"
+  class="fixed bottom-6 left-6 bg-red-600 hover:bg-red-700 text-white rounded-full shadow-lg w-14 h-14 flex items-center justify-center z-50">
+  <i class="fas fa-question text-xl"></i>
+</button>
+
+<!-- Back to Top Floating Button -->
+<button id="backToTop"
+  class="fixed bottom-6 right-6 bg-black hover:bg-gray-900 text-white rounded-full shadow-lg w-14 h-14 flex items-center justify-center z-40 hidden">
+  <i class="fas fa-angle-up text-xl"></i>
+</button>
+
+<!-- Help Panel -->
+<div id="helpPanel"
+  class="fixed bottom-0 right-6 sm:right-6 w-full sm:w-[350px] h-[75vh] bg-white rounded-t-lg shadow-2xl translate-y-full transition-all duration-300 ease-in-out z-50 overflow-hidden">
+  <div class="flex justify-between items-center p-4 border-b">
+    <h3 class="text-lg font-bold text-gray-800">Need Help?</h3>
+    <button id="closeHelp" class="text-gray-600 hover:text-red-600 text-2xl">
+      &times;
+    </button>
+  </div>
+  <div class="p-4 text-sm text-gray-700 space-y-4 overflow-y-auto h-full">
+    <p>Here’s how to make the most of Axios:</p>
+    <ul class="list-disc pl-6 space-y-1">
+      <li><strong>Shop by Category:</strong> Use filters to find what you want.</li>
+      <li><strong>Quick View:</strong> Hover and click 👁 to preview.</li>
+      <li><strong>Cart & Checkout:</strong> Choose size and color before checkout.</li>
+      <li><strong>Mobile Friendly:</strong> Easily shop on any device.</li>
+    </ul>
+    <p>
+      Need more support? <br />
+      <a href="mailto:support@axios.com" class="text-red-600 font-semibold hover:underline">Contact us by Email</a>
+    </p>
+  </div>
+</div>
+
+  <footer class="bg-[var(--secondary)] text-center py-6 text-sm mt-10">
+    <div class="flex justify-center space-x-6 mt-4">
+  <a href="https://facebook.com" target="_blank" class="hover:text-[var(--accent)] text-xl">
+    <i class="fab fa-facebook-f"></i>
+  </a>
+  <a href="https://twitter.com" target="_blank" class="hover:text-[var(--accent)] text-xl">
+    <i class="fab fa-x-twitter"></i>
+  </a>
+  <a href="https://instagram.com" target="_blank" class="hover:text-[var(--accent)] text-xl">
+    <i class="fab fa-instagram"></i>
+  </a>
+  <a href="https://youtube.com" target="_blank" class="hover:text-[var(--accent)] text-xl">
+    <i class="fab fa-youtube"></i>
+  </a>
+  <a href="https://tiktok.com" target="_blank" class="hover:text-[var(--accent)] text-xl">
+    <i class="fab fa-tiktok"></i>
+  </a>
+</div>
+
     <p>&copy; <span id="year"></span> Axios Apparel. All Rights Reserved.</p>
   </footer>
 
-  <!-- JavaScript -->
   <script>
-    // Year auto-update
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // Toggle Mobile Menu
     function toggleMenu() {
-      document.getElementById("mobileMenu").classList.toggle("hidden");
+      document.getElementById('mobileMenu').classList.toggle('hidden');
     }
 
-    // Toggle Update Form
-    function toggleForm() {
-      const form = document.getElementById("updatesForm");
-      form.classList.toggle("hidden");
-    }
-
-    // Auto Slide
-    const slider = document.getElementById("categorySlider");
-    let scrollPosition = 0;
-    function autoSlide() {
-      const cardWidth = 306;
-      scrollPosition += cardWidth;
-      if (scrollPosition >= slider.scrollWidth - slider.clientWidth) scrollPosition = 0;
-      slider.scrollTo({ left: scrollPosition, behavior: "smooth" });
-    }
-    setInterval(autoSlide, 3500);
+  
   </script>
 
-  <!-- External Scripts -->
-  <script src="form.js"></script>
-  <script src="js/cart.js"></script>
-  <script src="js/products.js"></script>
-  <script src="js/animations.js"></script>
-  <script src="updates.js"></script>
-  <script src="navbar.js"></script>
-
+  <script src="../js/cart.js"></script>
+<script src="../js/products.js"></script>
+<script src="../js/animations.js"></script>
+<script src="../js/updates.js"></script>
+<script src="../js/form.js"></script>
+<script src="../js/navbar.js"></script>
+<script src="../js/parallax.js"></script>
+<script src="../js/help.js"></script>
+<script src="../js/backToTop.js"></script>
+<script src="../js/year.js"></script>
 </body>
+
 </html>

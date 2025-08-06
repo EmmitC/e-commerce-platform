@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "title": "Maze Hoodie - Black",
+    "description": "Premium black hoodie with Maze logo, perfect for bold streetwear.",
+    "price": 49.99,
+    "category": "hoodie",
+    "colors": ["black"],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "stock": 20,
+    "featured": true,
+    "image": "Maze_Hoodie-Black.jpg"
+  },
+  {
+    "id": 2,
+    "title": "Maze Hoodie - Grey",
+    "description": "Stylish grey Maze hoodie with high-quality print and comfort fit.",
+    "price": 49.99,
+    "category": "hoodie",
+    "colors": ["grey"],
+    "sizes": ["S", "M", "L", "XL", "XXL"],
+    "stock": 15,
+    "featured": false,
+    "image": "Maze_Hoodie-Grey.jpg"
+  },
+  {
+    "id": 3,
+    "title": "Maze Snapback Hat - Black",
+    "description": "Maze branded snapback hat, iconic design with adjustable fit.",
+    "price": 29.99,
+    "category": "hat",
+    "colors": ["black"],
+    "sizes": ["One Size"],
+    "stock": 30,
+    "featured": false,
+    "image": "Maze_Snapback-Hat-Black.jpg"
+  }
+]

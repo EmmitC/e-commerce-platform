@@ -93,26 +93,27 @@ class CheckoutManager {
       cartContainer.appendChild(cartItem);
     });
 
-    // Calculate totals
-    const tax = subtotal * 0.08; // 8% tax
-    const total = subtotal + tax;
+   function calculateTotal() {
+  let subtotal = calculateCartSubtotal(); // your existing logic
 
-    if (cartSubtotal) cartSubtotal.textContent = `$${subtotal.toFixed(2)}`;
-    if (cartTax) cartTax.textContent = `$${tax.toFixed(2)}`;
-    if (cartTotal) cartTotal.textContent = `$${total.toFixed(2)}`;
+  // Apply coupon if available
+  if (appliedCoupon.type === "percentage") {
+    const discountAmount = subtotal * (appliedCoupon.value / 100);
+    subtotal -= discountAmount;
+  } else if (appliedCoupon.type === "amount") {
+    subtotal -= appliedCoupon.value;
   }
 
-  selectPaymentMethod(method) {
-    this.selectedPaymentMethod = method;
-    
-    document.querySelectorAll('.payment-method').forEach(btn => {
-      btn.classList.toggle('active', btn.dataset.method === method);
-    });
+  // Ensure subtotal doesn’t go below 0
+  if (subtotal < 0) subtotal = 0;
 
-    // Show/hide payment forms
-    document.querySelectorAll('.payment-form').forEach(form => {
-      form.style.display = form.id === `${method}Form` ? 'block' : 'none';
-    });
+  const tax = subtotal * 0.08; // 8% tax
+  const total = subtotal + tax;
+
+  if (cartSubtotal) cartSubtotal.textContent = `$${subtotal.toFixed(2)}`;
+  if (cartTax) cartTax.textContent = `$${tax.toFixed(2)}`;
+  if (cartTotal) cartTotal.textContent = `$${total.toFixed(2)}`;
+}
   }
 
   setupPaymentMethods() {
