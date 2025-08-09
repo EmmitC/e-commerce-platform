@@ -1,0 +1,75 @@
+body {
+  margin: 0;
+  background-color: #0a0a0a;
+  font-family: 'Poppins', sans-serif;
+  color: white;
+  overflow-x: hidden;
+}
+
+.aura-hero {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.aura-bg {
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at center, rgb(223, 226, 226), transparent 60%),
+              radial-gradient(circle at 30% 70%, rgba(122, 118, 122, 0.4), transparent 60%),
+              radial-gradient(circle at 70% 30%, rgba(63, 104, 84, 0.4), transparent 60%);
+  animation: auraMove 12s ease-in-out infinite alternate;
+  filter: blur(80px);
+  z-index: 0;
+}
+
+@keyframes auraMove {
+  0% {
+    transform: translate(-20%, -20%) rotate(0deg);
+  }
+  100% {
+    transform: translate(20%, 20%) rotate(360deg);
+  }
+}
+
+.aura-content {
+  position: relative;
+  z-index: 1;
+}
+
+.aura-content h1 {
+  font-size: 4rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-shadow: 0 0 15px rgba(48, 72, 82, 0.8);
+}
+
+.aura-content p {
+  font-size: 1.3rem;
+  margin: 15px 0 30px;
+  color: #e9e7e7;
+}
+
+.aura-btn {
+  display: inline-block;
+  padding: 12px 30px;
+  font-size: 1.2rem;
+  color: white;
+  text-decoration: none;
+  border: 2px solid rgba(215, 201, 201, 0.6);
+  border-radius: 50px;
+  background: rgba(0, 183, 255, 0.1);
+  backdrop-filter: blur(4px);
+  transition: all 0.3s ease;
+}
+
+.aura-btn:hover {
+  background: rgba(71, 73, 74, 0.3);
+  box-shadow: 0 0 20px rgba(116, 141, 151, 0.8);
+  transform: translateY(-2px);
+}

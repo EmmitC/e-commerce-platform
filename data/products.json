@@ -182,42 +182,6 @@
       "description": "Peace was never an option,I choose Violence! T-Shirt with bold graphics. Inpired by the iconic duck meme.",
       "stock": 20,
       "featured": true
-    },
-
-    {
-      "id": 13,
-      "title": "Product Title",
-      "price": 22,
-      "category": "category Name",
-      "colors": ["#000000", "#ffffff"],
-      "colorImages": {
-        "#000000": "../Merch and T-Shirts/--.jpg",
-        "#ffffff": "../Merch and T-Shirts/--.jpg"
-      },
-
-      "sizes": ["One Size"],
-      "image": "../Merch and T-Shirts/--.jpg",
-      "description": "Description of the product goes here. It should be detailed and informative.",
-      "stock": 20,
-      "featured": true
-    },
-
-    {
-      "id": 14,
-      "title": "Product Title",
-      "price": 22,
-      "category": "category Name",
-      "colors": ["#000000", "#ffffff"],
-      "colorImages": {
-        "#000000": "../Merch and T-Shirts/--.jpg",
-        "#ffffff": "../Merch and T-Shirts/--.jpg"
-      },
-
-      "sizes": ["One Size"],
-      "image": "../Merch and T-Shirts/--.jpg",
-      "description": "Description of the product goes here. It should be detailed and informative.",
-      "stock": 20,
-      "featured": true
     }
   ]
 }

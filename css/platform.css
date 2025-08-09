@@ -11,6 +11,7 @@
   --bg: #0d0d0d;
   --fg: #ffffff;
   --accent: #e50914;
+  --transparent:transparent;
   --secondary: #1f1f1f;
   --tertiary: #333333;
   --success: #28a745;
@@ -91,6 +92,10 @@ nav.scrolled {
   font-weight: bold;
 }
 
+/* #mobileMenu{
+ 
+} */
+
 #emailUpdatesForm{
    .updates-form {
       background: rgba(0, 0, 0, 0.7);
@@ -142,6 +147,13 @@ option{
   background-color: var(--secondary);
   color: var(--fg)
   ;}
+
+  h2{
+    color: var(--fg);
+    font-size: 2.0rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
 }
 
 /* --- Product Cards --- */
