@@ -32,6 +32,8 @@
 
 html {
   scroll-behavior: smooth;
+  animation: fadeInUp 0.7s ease-out;
+
 }
 
 body {
@@ -874,7 +876,7 @@ option{
 .btn {
   display: inline-block;
   padding: 12px 24px;
-  border: none;
+  border:var(--fg) 1px solid var(--tertiary);
   border-radius: var(--border-radius);
   font-weight: 600;
   text-decoration: none;
@@ -887,6 +889,7 @@ option{
 .btn-primary {
   background: var(--accent);
   color: white;
+  box-shadow: var(--box-shadow);
 }
 
 .btn-primary:hover {
@@ -896,7 +899,7 @@ option{
 }
 
 .btn-secondary {
-  background: var(--secondary);
+  background: var(--transparent);
   color: var(--fg);
   border: 1px solid var(--tertiary);
 }
