@@ -171,7 +171,7 @@ function addToCart(product) {
 
 function updateCartCount() {
   const cart = JSON.parse(localStorage.getItem('cart')) || [];
-  document.getElementById('cartCount').innerText = cart.length;
+  // document.getElementById('cartCount').innerText = cart.length;
   document.getElementById('cartCount').style.display = 'inline';
   const mobileCount = document.getElementById('cartCountMobile');
   if (mobileCount) {

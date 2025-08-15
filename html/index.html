@@ -85,7 +85,7 @@
   <nav class="bg-[var(--transparent)] sticky top-0 z-50 px-6 py-4 flex md:hidden justify-between items-center">
     <div class="text-xl font-bold">Axios</div>
     <div class="text-xl" onclick="toggleMenu()">
-      <i class="fas fa-bars">x</i>
+      <i class="fas fa-bars"></i>
     </div>
   </nav>
   <div id="mobileMenu" class="md:hidden hidden bg-[var(--transparenty)] px-6 py-4 space-y-2">
@@ -252,101 +252,130 @@
   </form>
 </section> -->
 <!-- Contact Section -->
-<section id="contact" class="max-w-5xl mx-auto px-6 py-20 text-center">
-  <h2 class="text-4xl font-extrabold mb-4">Get in Touch</h2>
-  <p class="text-lg text-gray-300 mb-10 max-w-2xl mx-auto">
-    Have a question, project idea, or just want to say hi?  
-    Fill out the form below and we’ll get back to you within 24 hours.
+<!-- Contact Section -->
+<section id="contact" class="max-w-4xl mx-auto px-6 py-20">
+  <h2 class="text-4xl font-bold text-center mb-4">Get in Touch</h2>
+  <p class="text-lg text-center text-gray-600 mb-10">
+    Have questions, feedback, or partnership inquiries? We’d love to hear from you.
   </p>
 
-  <form 
-    id="contactForm" 
-    class="space-y-6 bg-[var(--secondary)] p-8 rounded-lg shadow-2xl text-left max-w-3xl mx-auto"
-    action="https://formspree.io/f/your-form-id" 
-    method="POST"
-  >
+  <form id="contactForm" class="space-y-6 bg-[var(--secondary)] p-8 rounded-lg shadow-xl" novalidate>
     <!-- Name -->
     <div>
-      <label for="name" class="block text-sm font-semibold mb-2">Full Name <span class="text-red-500">*</span></label>
+      <label for="name" class="block text-sm font-semibold mb-2">Full Name</label>
       <input 
         type="text" 
         id="name" 
         name="name" 
         placeholder="John Doe"
-        class="w-full px-4 py-3 rounded-lg bg-white text-black border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[var(--accent)]"
+        class="w-full px-4 py-3 rounded bg-white text-black border border-gray-300 focus:border-[var(--accent)] focus:ring-2 focus:ring-[var(--accent)] outline-none" 
         required
       />
+      <small class="text-red-500 hidden" id="nameError">Please enter your name.</small>
     </div>
 
     <!-- Email -->
     <div>
-      <label for="email" class="block text-sm font-semibold mb-2">Email Address <span class="text-red-500">*</span></label>
+      <label for="email" class="block text-sm font-semibold mb-2">Email Address</label>
       <input 
         type="email" 
         id="email" 
         name="email" 
         placeholder="you@example.com"
-        class="w-full px-4 py-3 rounded-lg bg-white text-black border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[var(--accent)]"
+        class="w-full px-4 py-3 rounded bg-white text-black border border-gray-300 focus:border-[var(--accent)] focus:ring-2 focus:ring-[var(--accent)] outline-none" 
         required
       />
+      <small class="text-red-500 hidden" id="emailError">Please enter a valid email address.</small>
     </div>
 
     <!-- Message -->
     <div>
-      <label for="message" class="block text-sm font-semibold mb-2">Your Message <span class="text-red-500">*</span></label>
+      <label for="message" class="block text-sm font-semibold mb-2">Message</label>
       <textarea 
         id="message" 
         name="message" 
-        rows="5" 
-        placeholder="Write your message here..."
-        class="w-full px-4 py-3 rounded-lg bg-white text-black border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[var(--accent)]"
+        rows="4" 
+        placeholder="Your message..."
+        class="w-full px-4 py-3 rounded bg-white text-black border border-gray-300 focus:border-[var(--accent)] focus:ring-2 focus:ring-[var(--accent)] outline-none" 
         required
       ></textarea>
+      <small class="text-red-500 hidden" id="messageError">Please enter a message.</small>
     </div>
 
     <!-- Submit Button -->
-    <button 
-      type="submit" 
-      class="w-full bg-[var(--accent)] text-white font-bold px-6 py-3 rounded-lg shadow-lg hover:bg-red-700 focus:outline-none focus:ring-4 focus:ring-red-400 transition"
-    >
-      Send Message
-    </button>
+    <div class="text-center">
+      <button 
+        type="submit" 
+        class="bg-[var(--accent)] text-white px-8 py-3 rounded-lg font-semibold hover:bg-red-700 transition"
+      >
+        Send Message
+      </button>
+    </div>
 
-    <!-- Feedback Message -->
-    <p id="formStatus" class="text-center text-sm mt-4 hidden"></p>
+    <!-- Success Message -->
+    <p id="successMessage" class="text-green-500 text-center mt-4 hidden">
+      ✅ Your message has been sent successfully!
+    </p>
   </form>
 </section>
 
+<!-- JS Validation & Submission -->
 <script>
-document.getElementById('contactForm').addEventListener('submit', async function (e) {
+document.getElementById('contactForm').addEventListener('submit', async function(e) {
   e.preventDefault();
 
-  const form = e.target;
-  const status = document.getElementById('formStatus');
+  let valid = true;
 
-  status.textContent = 'Sending...';
-  status.classList.remove('hidden');
-  status.classList.remove('text-green-500', 'text-red-500');
-  status.classList.add('text-gray-300');
+  // Validation
+  const name = document.getElementById('name');
+  const email = document.getElementById('email');
+  const message = document.getElementById('message');
 
+  const nameError = document.getElementById('nameError');
+  const emailError = document.getElementById('emailError');
+  const messageError = document.getElementById('messageError');
+
+  if (!name.value.trim()) {
+    nameError.classList.remove('hidden');
+    valid = false;
+  } else {
+    nameError.classList.add('hidden');
+  }
+
+  if (!email.value.trim() || !/^\S+@\S+\.\S+$/.test(email.value)) {
+    emailError.classList.remove('hidden');
+    valid = false;
+  } else {
+    emailError.classList.add('hidden');
+  }
+
+  if (!message.value.trim()) {
+    messageError.classList.remove('hidden');
+    valid = false;
+  } else {
+    messageError.classList.add('hidden');
+  }
+
+  if (!valid) return;
+
+  // Simulated API Submission (replace with your endpoint)
   try {
-    const response = await fetch(form.action, {
-      method: form.method,
-      body: new FormData(form),
-      headers: { 'Accept': 'application/json' }
+    const res = await fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name: name.value, email: email.value, message: message.value })
     });
 
-    if (response.ok) {
-      status.textContent = '✅ Your message has been sent successfully!';
-      status.classList.add('text-green-500');
-      form.reset();
+    if (res.ok) {
+      document.getElementById('successMessage').classList.remove('hidden');
+      name.value = '';
+      email.value = '';
+      message.value = '';
     } else {
-      status.textContent = '❌ Oops! Something went wrong. Please try again.';
-      status.classList.add('text-red-500');
+      alert('❌ Failed to send message. Please try again.');
     }
   } catch (error) {
-    status.textContent = '❌ Network error. Please check your connection.';
-    status.classList.add('text-red-500');
+    alert('❌ Error connecting to the server.');
   }
 });
 </script>

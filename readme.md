@@ -216,3 +216,102 @@ fetch("products.json")
     </div>
   </div>
 </section>
+
+<section id="contact" class="max-w-5xl mx-auto px-6 py-20 text-center">
+  <h2 class="text-4xl font-extrabold mb-4">Get in Touch</h2>
+  <p class="text-lg text-gray-300 mb-10 max-w-2xl mx-auto">
+    Have a question, project idea, or just want to say hi?  
+    Fill out the form below and we’ll get back to you within 24 hours.
+  </p>
+
+  <form 
+    id="contactForm" 
+    class="space-y-6 bg-[var(--secondary)] p-8 rounded-lg shadow-2xl text-left max-w-3xl mx-auto"
+    action="https://formspree.io/f/your-form-id" 
+    method="POST"
+  >
+    <!-- Name -->
+    <div>
+      <label for="name" class="block text-sm font-semibold mb-2">Full Name <span class="text-red-500">*</span></label>
+      <input 
+        type="text" 
+        id="name" 
+        name="name" 
+        placeholder="John Doe"
+        class="w-full px-4 py-3 rounded-lg bg-white text-black border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[var(--accent)]"
+        required
+      />
+    </div>
+
+    <!-- Email -->
+    <div>
+      <label for="email" class="block text-sm font-semibold mb-2">Email Address <span class="text-red-500">*</span></label>
+      <input 
+        type="email" 
+        id="email" 
+        name="email" 
+        placeholder="you@example.com"
+        class="w-full px-4 py-3 rounded-lg bg-white text-black border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[var(--accent)]"
+        required
+      />
+    </div>
+
+    <!-- Message -->
+    <div>
+      <label for="message" class="block text-sm font-semibold mb-2">Your Message <span class="text-red-500">*</span></label>
+      <textarea 
+        id="message" 
+        name="message" 
+        rows="5" 
+        placeholder="Write your message here..."
+        class="w-full px-4 py-3 rounded-lg bg-white text-black border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[var(--accent)]"
+        required
+      ></textarea>
+    </div>
+
+    <!-- Submit Button -->
+    <button 
+      type="submit" 
+      class="w-full bg-[var(--accent)] text-white font-bold px-6 py-3 rounded-lg shadow-lg hover:bg-red-700 focus:outline-none focus:ring-4 focus:ring-red-400 transition"
+    >
+      Send Message
+    </button>
+
+    <!-- Feedback Message -->
+    <p id="formStatus" class="text-center text-sm mt-4 hidden"></p>
+  </form>
+</section>
+
+<script>
+document.getElementById('contactForm').addEventListener('submit', async function (e) {
+  e.preventDefault();
+
+  const form = e.target;
+  const status = document.getElementById('formStatus');
+
+  status.textContent = 'Sending...';
+  status.classList.remove('hidden');
+  status.classList.remove('text-green-500', 'text-red-500');
+  status.classList.add('text-gray-300');
+
+  try {
+    const response = await fetch(form.action, {
+      method: form.method,
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    });
+
+    if (response.ok) {
+      status.textContent = '✅ Your message has been sent successfully!';
+      status.classList.add('text-green-500');
+      form.reset();
+    } else {
+      status.textContent = '❌ Oops! Something went wrong. Please try again.';
+      status.classList.add('text-red-500');
+    }
+  } catch (error) {
+    status.textContent = '❌ Network error. Please check your connection.';
+    status.classList.add('text-red-500');
+  }
+});
+</script>

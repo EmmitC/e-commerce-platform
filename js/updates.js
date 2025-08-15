@@ -44,7 +44,4 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-setInterval(() => {
-  const slider = document.getElementById('parallaxCategorySlider');
-  slider.scrollLeft += 1;
-}, 20);
+
