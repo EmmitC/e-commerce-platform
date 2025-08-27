@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="../css/platform.css">
   <link rel="stylesheet" href="../css/styles.css">
   <link rel="stylesheet" href="../css/aura.css"/>
- 
+  
 </head>
 
 <body class="bg-[var(--bg)] text-[var(--fg)] min-h-screen flex flex-col">
@@ -95,23 +95,105 @@
   </div>
 </section>
   <!-- Category Slider -->
-  <section class="w-full bg-[var(--bg)] py-10 px-4">
+   
+   <!-- Carousel -->
+<!-- <div id="demo" class="carousel slide" data-bs-ride="carousel"> -->
+
+  <!-- Indicators/dots -->
+  <!-- <div class="carousel-indicators">
+    <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+    <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+    <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+  </div>
+   -->
+  <!-- The slideshow/carousel -->
+  <!-- <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="../Merch and T-Shirts/I-choose-violence-duck-black.jpg" alt="Los Angeles" class="d-block" style="width:100%">
+      <div class="carousel-caption">
+        <h3>Los Angeles</h3>
+        <p>We had such a great time in LA!</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="../Merch and T-Shirts/Maze_Hoodie-Black.jpg" alt="Chicago" class="d-block" style="width:100%">
+      <div class="carousel-caption">
+        <h3>Chicago</h3>
+        <p>Thank you, Chicago!</p>
+      </div> 
+    </div>
+    <div class="carousel-item">
+      <img src="../Merch and T-Shirts/Maze_Snapback-Hat-Black.jpg" alt="New York" class="d-block" style="width:100%">
+      <div class="carousel-caption">
+        <h3>New York</h3>
+        <p>We love the Big Apple!</p>
+      </div>  
+    </div>
+  </div>
+   -->
+  <!-- Left and right controls/icons -->
+  <!-- <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </button>
+</div> -->
+
+<!-- <div class="container-fluid mt-3">
+  <h3>Carousel Example</h3>
+  <p>The following example shows how to create a basic carousel with indicators and controls.</p>
+</div> -->
+  <!-- <section class="w-full bg-[var(--bg)] py-10 px-4">
     <h2 class="text-3xl md:text-4xl font-bold text-center mb-8">Shop by Category</h2>
     <div class="overflow-hidden relative">
-      <div id="categorySlider" class="flex gap-6 transition-transform duration-700 ease-in-out w-max">
+      <div id="categorySlider" class="flex gap-6 transition-transform duration-700 ease-in-out w-max"> -->
         <!-- Replace or extend with your real images -->
-        <a href="shop.html?category=men" class="block min-w-[300px] max-w-[300px] hover:opacity-80">
+        <!-- <a href="shop.html?category=men" class="block min-w-[300px] max-w-[300px] hover:opacity-80">
           <img src="/Merch and T-Shirts/maze-official-logo-tee.jpg" alt="Men's Wear" class="rounded-lg shadow-lg">
           <p class="text-center mt-2 font-semibold">Men's Wear</p>
         </a>
         <a href="shop.html?category=women" class="block min-w-[300px] max-w-[300px] hover:opacity-80">
           <img src="/Merch and T-Shirts/PosterMaker_18012025_150305.jpg" alt="Women's Wear" class="rounded-lg shadow-lg">
           <p class="text-center mt-2 font-semibold">Women's Wear</p>
-        </a>
+        </a> -->
         <!-- more categories... -->
-      </div>
-    </div>
-  </section>
+      <!-- </div> -->
+    <!-- </div>
+  </section> -->
+
+  <!-- Category Slider Section -->
+<!-- <section id="categorySliderSection" class="category-section">
+  <h2 class="section-title">Shop by Category</h2>
+
+  <div class="category-slider">
+    <a href="./shop.html?category=men" class="category-card">
+      <img src="../Merch and T-Shirts/maze-official-logo-tee.jpg" alt="Men's Wear">
+      <p>Men's Wear</p>
+    </a>
+
+    <a href="./shop.html?category=women" class="category-card">
+      <img src="../Merch and T-Shirts/PosterMaker_18012025_150305.jpg" alt="Women's Wear">
+      <p>Women's Wear</p>
+    </a>
+
+    <a href="./shop.html?category=hoodies" class="category-card">
+      <img src="../Merch and T-Shirts/PosterMaker_12052025_225412.jpg" alt="Hoodies">
+      <p>Hoodies</p>
+    </a>
+
+    <a href="./shop.html?category=caps" class="category-card">
+      <img src="../Merch and T-Shirts/PosterMaker_12052025_230757.jpg" alt="Caps">
+      <p>Caps</p>
+    </a>
+
+    <a href="./shop.html?category=accessories" class="category-card">
+      <img src="../Merch and T-Shirts/PosterMaker_12052025_231209.jpg" alt="Accessories">
+      <p>Accessories</p>
+    </a>
+  </div>
+</section> -->
+
 
   <!-- Shop Content -->
   <main class="flex-grow px-6 py-10 max-w-7xl mx-auto">
@@ -429,6 +511,20 @@
       <a href="https://tiktok.com" target="_blank" class="hover:text-[var(--accent)]"><i class="fab fa-tiktok"></i></a>
     </div>
     <p>&copy; <span id="year"></span> Axios Apparel.</p>
+
+    <div id="google_translate_element"class="translation"></div>
+
+<script type="text/javascript">
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement(
+      {pageLanguage: 'en', includedLanguages: 'fr,de,es,zh,ar,sw'},
+      'google_translate_element'
+    );
+  }
+</script>
+
+<script type="text/javascript"src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+</script>
   </footer>
 
   <!-- JavaScript -->

@@ -315,3 +315,53 @@ document.getElementById('contactForm').addEventListener('submit', async function
   }
 });
 </script>
+
+
+
+
+    <section id="categorySliderSection" class="relative w-full bg-[var(--bg)] py-16 px-4 overflow-hidden">
+  <h2 class="text-3xl md:text-4xl font-bold text-center mb-10">Shop by Category</h2>
+
+  <div id="parallaxCategoryWrapper" class="relative overflow-hidden">
+    <div 
+      id="parallaxCategorySlider" 
+      class="flex gap-8 w-max snap-x snap-mandatory overflow-x-auto no-scrollbar"
+      style="scroll-behavior: smooth;"
+    >
+      <!-- Example Item -->
+      <a href="./shop.html?category=men" class="block w-[320px] snap-center">
+        <img src="../Merch and T-Shirts/maze-official-logo-tee.jpg" alt="Men's Wear" 
+          class="rounded-xl shadow-lg w-full h-72 object-cover transition hover:scale-105 hover:shadow-xl">
+        <p class="text-center mt-3 font-semibold">Men's Wear</p>
+      </a>
+
+      <!-- Repeat your categories -->
+      <a href="./shop.html?category=women" class="block w-[320px] snap-center">
+        <img src="../Merch and T-Shirts/PosterMaker_18012025_150305.jpg" alt="Women's Wear"
+          class="rounded-xl shadow-lg w-full h-72 object-cover transition hover:scale-105 hover:shadow-xl">
+        <p class="text-center mt-3 font-semibold">Women's Wear</p>
+      </a>
+
+      <!-- Add more as you already had -->
+    </div>
+  </div>
+</section>
+
+
+const section = document.getElementById("categorySliderSection");
+const slider = document.getElementById("parallaxCategorySlider");
+
+window.addEventListener("wheel", (e) => {
+  const sectionRect = section.getBoundingClientRect();
+  const inView = sectionRect.top < window.innerHeight && sectionRect.bottom > 0;
+
+  if (inView && Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+    e.preventDefault();
+
+    // Scroll horizontally instead of vertically
+    slider.scrollLeft += e.deltaY;
+
+    // Optional: smooth scroll "snap" effect
+    slider.style.scrollBehavior = "smooth";
+  }
+}, { passive: false });

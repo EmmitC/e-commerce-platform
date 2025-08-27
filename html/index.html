@@ -104,7 +104,7 @@
 
   <!-- Hero -->
   <header id="home" class="h-screen flex items-center justify-center bg-cover bg-center text-center px-6 parallax" style="background-image: url('../axios/hero2.jpg');" data-speed="0.5">
-    <div class="hero-content fade-in">
+    <div class="hero-content fade-in"id="heroContent">
       <h1 class="text-5xl md:text-7xl font-bold text-white drop-shadow-xl typing-text">Not Just Style, Its Confidence in Motion</h1>
       <p class="text-xl md:text-2xl text-white mt-4 opacity-90">Express your unique style with Axios Apparel</p>
       <a href="#shop" class="btn btn-primary bg-[var(--accent)] mt-8 inline-block">Shop Now</a>
@@ -170,6 +170,8 @@
     </div>
   </section>
   <!-- Parallax Effect for Category Slider -->
+   <!-- Category Slider Section: Horizontal Scroll Experience -->
+
 
   <!-- Product Listings (dynamic content loaded with JS) -->
   <section class="max-w-6xl mx-auto px-6 py-10 slide-up" id="shop">
@@ -692,6 +694,19 @@ document.getElementById('contactForm').addEventListener('submit', async function
   </a>
 </div>
     <p>&copy; <span id="year"></span> Axios Apparel.</p>
+    <div id="google_translate_element"class="translation"></div>
+
+<script type="text/javascript">
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement(
+      {pageLanguage: 'en', includedLanguages: 'fr,de,es,zh,ar,sw'},
+      'google_translate_element'
+    );
+  }
+</script>
+
+<script type="text/javascript"src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+</script>
   </footer>
 
   <script>
@@ -714,6 +729,7 @@ document.getElementById('contactForm').addEventListener('submit', async function
     });
 
   </script>
+
 
 
 

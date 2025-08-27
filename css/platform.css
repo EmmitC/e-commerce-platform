@@ -63,6 +63,39 @@ body:not(.loaded)::before {
   justify-content: center;
 }
 
+#heroContent {
+  animation:fade-out linear 1s forwards;
+  animation-timeline:view();
+  animation-range:exit(0%, 100%);
+}
+
+.header-image{
+  grid-column: 1 / -1;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+  object-fit: cover;
+  z-index: -1;
+
+  animation:header-image-animation linear ;
+  animation-timeline: view();
+}
+@keyframes fade-out {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes header-image-animation {
+  25%{
+    opacity: 1;
+  }
+  85%,100%{
+    opacity: 0;
+  }
+}
 /* --- Navigation Enhancements --- */
 nav {
   backdrop-filter: blur(10px);
@@ -873,6 +906,14 @@ option{
 }
 
 /* --- Button Styles --- */
+button img{
+  /* filter: invert(0); */
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  /* vertical-align: middle; */
+  margin-right: 8px;
+}
 .btn {
   display: inline-block;
   padding: 12px 24px;
@@ -933,6 +974,82 @@ option{
   background: var(--accent);
   border-color: var(--accent);
   color: white;
+}
+
+/* Section Styling */
+.category-section {
+  width: 100%;
+  padding: 4rem 2rem;
+  background: var(--bg, #f8f8f8);
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+
+/* Horizontal Slider with Scroll Snap */
+.category-slider {
+  display: flex;
+  gap: 2rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;   /* snap horizontally */
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch; /* iOS smooth scroll */
+  padding-bottom: 1rem;
+}
+
+/* Hide scrollbar */
+.category-slider::-webkit-scrollbar {
+  display: none;
+}
+.category-slider {
+  scrollbar-width: none;
+}
+
+/* Cards */
+.category-card {
+  flex: 0 0 300px;                /* each card fixed width */
+  scroll-snap-align: center;      /* snap each card */
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.category-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+.category-card p {
+  margin-top: 0.75rem;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+.category-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+/* Optional: Timeline Line under cards */
+.category-slider::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0.5rem;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #111, transparent);
+}
+ @keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }   
 }
 
 /* --- Search and Filter Bar --- */
@@ -998,11 +1115,20 @@ option{
 #shopmore:hover {
   background-color: whitesmoke;
 }
-/* 
+
 #parallaxCategorySlider {
   will-change: transform;
   transition: transform 0.1s linear;
 }
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none; 
+  scrollbar-width: none;
+}
+
 
 #parallaxCategorySlider:hover {
   transform: scale(1.05);
@@ -1014,7 +1140,7 @@ option{
 
 .category-item:hover {
   transform: scale(1.1);
-} */
+}
 
 #quickViewModal *,
 #quickViewModal *::before,

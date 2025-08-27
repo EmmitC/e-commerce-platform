@@ -19,11 +19,29 @@ class CheckoutManager {
     });
 
     // Payment method selection
-    document.querySelectorAll('.payment-method').forEach(method => {
-      method.addEventListener('click', (e) => {
-        this.selectPaymentMethod(e.target.dataset.method);
-      });
-    });
+   
+    // Show the selected payment form
+function selectPaymentMethod(method) {
+  // Hide all forms
+  document.querySelectorAll('.payment-form').forEach(form => {
+    form.style.display = 'none';
+  });
+
+  // Show selected form
+  const formToShow = document.getElementById(method + 'Form');
+  if (formToShow) {
+    formToShow.style.display = 'block';
+  }
+}
+
+// Payment method selection listener
+document.querySelectorAll('.payment-method').forEach(method => {
+  method.addEventListener('click', (e) => {
+    const selectedMethod = e.target.dataset.method;
+    selectPaymentMethod(selectedMethod);
+  });
+});
+
 
     // Checkout form submission
     const checkoutForm = document.getElementById('checkoutForm');
