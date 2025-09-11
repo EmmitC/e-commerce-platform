@@ -85,26 +85,24 @@
 
   
   <!-- Navbar for Mobile (Hamburger) -->
-  <nav class="bg-[var(--transparent)] sticky top-0 z-50 px-6 py-4 flex md:hidden justify-between items-center">
-    <div class="text-xl font-bold">Axios</div>
-    <!-- <button id="btn-theme" class="pill" title="Toggle theme">🌙</button> -->
-    <div class="text-xl" onclick="toggleMenu()">
-      <!-- <i class="fas fa-bars"></i> -->
-       <button class="navbar-toggle">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-        </button>
-        <ul class="navbar-menu" id="mobileMenu">
-            <li>Home</li>
-            <li>About</li>
-            <li>Blog</li>
-            <li>Shop</li>
-            <li>Shop</li>
-        </ul>
-    </div>
-    
-  </nav>
+<nav class="bg-[var(--transparent)] sticky top-0 z-50 px-6 py-4 flex md:hidden justify-between items-center relative">
+  <div class="text-xl font-bold">Axios</div>
+
+  <button class="navbar-toggle" id="mobileToggle">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </button>
+
+  <!-- ✅ Move menu OUTSIDE button wrapper -->
+  <ul class="navbar-menu" id="mobileMenu">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#blog">Blog</a></li>
+    <li><a href="#shop">Shop</a></li>
+  </ul>
+</nav>
+
   <!-- <div id="mobileMenu" class="md:hidden hidden bg-[var(--transparent)] px-6 py-4 space-y-2">
     <a href="#home" class="block hover:text-[var(--accent)]"><i class="fas fa-house"></i> Home</a>
     <a href="shop.html" class="block hover:text-[var(--accent)]"><i class="fas fa-store"></i> Shop</a>
