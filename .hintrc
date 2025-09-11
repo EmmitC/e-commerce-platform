@@ -35,7 +35,8 @@
       {
         "ignore": [
           "backdrop-filter",
-          "scrollbar-width"
+          "scrollbar-width",
+          "-webkit-overflow-scrolling"
         ]
       }
     ],

@@ -365,3 +365,93 @@ window.addEventListener("wheel", (e) => {
     slider.style.scrollBehavior = "smooth";
   }
 }, { passive: false });
+
+
+
+ <!-- Navbar for Mobile (Hamburger) -->
+  <nav class="bg-[var(--transparent)] sticky top-0 z-50 px-6 py-4 flex md:hidden justify-between items-center">
+    <div class="text-xl font-bold">Axios</div>
+    <div class="text-xl" onclick="toggleMenu()">
+      <i class="fas fa-bars"></i>
+    </div>
+  </nav>
+  <div id="mobileMenu" class="md:hidden hidden bg-[var(--transparenty)] px-6 py-4 space-y-2">
+    <a href="#home" class="block hover:text-[var(--accent)]"><i class="fas fa-house"></i> Home</a>
+    <a href="shop.html" class="block hover:text-[var(--accent)]"><i class="fas fa-store"></i> Shop</a>
+    <a href="about.html" class="block hover:text-[var(--accent)]"><i class="fas fa-circle-info"></i> About</a>
+    <a href="about.html" class="block hover:text-[var(--accent)]"><i class="fas fa-blog"></i> Blog</a>
+    <a href="#contact" class="block hover:text-[var(--accent)]"><i class="fas fa-envelope"></i> Contact</a>
+    <a href="login.html" class="block hover:text-[var(--accent)]"><i class="fas fa-user"></i> Login</a>
+    <button onclick="toggleForm()" class="block w-full text-left hover:text-[var(--accent)]"><i class="fas fa-bell"></i> Updates</button>
+    <a href="checkout.html" class="block hover:text-[var(--accent)] cart-icon">
+      <i class="fas fa-cart-shopping"></i> Checkout
+      <span id="cartCountMobile" style="display: none;">0</span>
+    </a>
+  </div>
+
+
+  <section id="contact" class="max-w-4xl mx-auto px-6 py-20">
+  <h2 class="text-4xl font-bold text-center mb-4">Get in Touch</h2>
+  <p class="text-lg text-center text-gray-600 mb-10">
+    Have questions, feedback, or partnership inquiries? We’d love to hear from you.
+  </p>
+
+  <form id="contactForm" class="space-y-6 bg-[var(--secondary)] p-8 rounded-lg shadow-xl" novalidate>
+    <!-- Name -->
+    <div>
+      <label for="name" class="block text-sm font-semibold mb-2">Full Name</label>
+      <input 
+        type="text" 
+        id="name" 
+        name="name" 
+        placeholder="John Doe"
+        class="w-full px-4 py-3 rounded bg-white text-black border border-gray-300 focus:border-[var(--accent)] focus:ring-2 focus:ring-[var(--accent)] outline-none" 
+        required
+      />
+      <small class="text-red-500 hidden" id="nameError">Please enter your name.</small>
+    </div>
+
+    <!-- Email -->
+    <div>
+      <label for="email" class="block text-sm font-semibold mb-2">Email Address</label>
+      <input 
+        type="email" 
+        id="email" 
+        name="email" 
+        placeholder="you@example.com"
+        class="w-full px-4 py-3 rounded bg-white text-black border border-gray-300 focus:border-[var(--accent)] focus:ring-2 focus:ring-[var(--accent)] outline-none" 
+        required
+      />
+      <small class="text-red-500 hidden" id="emailError">Please enter a valid email address.</small>
+    </div>
+
+    <!-- Message -->
+    <div>
+      <label for="message" class="block text-sm font-semibold mb-2">Message</label>
+      <textarea 
+        id="message" 
+        name="message" 
+        rows="4" 
+        placeholder="Your message..."
+        class="w-full px-4 py-3 rounded bg-white text-black border border-gray-300 focus:border-[var(--accent)] focus:ring-2 focus:ring-[var(--accent)] outline-none" 
+        required
+      ></textarea>
+      <small class="text-red-500 hidden" id="messageError">Please enter a message.</small>
+    </div>
+
+    <!-- Submit Button -->
+    <div class="text-center">
+      <button 
+        type="submit" 
+        class="bg-[var(--accent)] text-white px-8 py-3 rounded-lg font-semibold hover:bg-red-700 transition"
+      >
+        Send Message
+      </button>
+    </div>
+
+    <!-- Success Message -->
+    <p id="successMessage" class="text-green-500 text-center mt-4 hidden">
+      ✅ Your message has been sent successfully!
+    </p>
+  </form>
+</section>

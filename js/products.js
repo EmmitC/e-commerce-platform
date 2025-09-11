@@ -206,7 +206,6 @@ class ProductManager {
     return this.products.find(product => product.id === id);
   }
 }
-
 // Product Modal functionality
 class ProductModal {
   constructor() {
@@ -214,6 +213,7 @@ class ProductModal {
     this.currentProduct = null;
     this.selectedSize = null;
     this.selectedColor = null;
+    this.selectedQuantity = 1; // ✅ track quantity in modal
     this.createModal();
   }
 
@@ -246,6 +246,18 @@ class ProductModal {
                 <div class="color-options" id="modalColorOptions"></div>
               </div>
             </div>
+
+            <!-- ✅ Quantity Selector -->
+            <div class="cart-item-quantity">
+              <button class="quantity-btn" id="modalQuantityMinus">
+                <i class="fas fa-minus"></i>
+              </button>
+              <span class="quantity" id="modalQuantityValue">0</span>
+              <button class="quantity-btn" id="modalQuantityPlus">
+                <i class="fas fa-plus"></i>
+              </button>
+            </div>
+
             <button class="modal-add-to-cart" onclick="addToCartFromModal()">
               <i class="fas fa-shopping-cart"></i>
               Add to Cart
@@ -255,6 +267,10 @@ class ProductModal {
       </div>
     `;
     document.body.appendChild(this.modal);
+
+    // ✅ Attach event listeners for quantity buttons
+    this.modal.querySelector('#modalQuantityMinus').addEventListener('click', () => this.updateQuantity(-1));
+    this.modal.querySelector('#modalQuantityPlus').addEventListener('click', () => this.updateQuantity(1));
   }
 
   open(productId) {
@@ -264,6 +280,7 @@ class ProductModal {
     this.currentProduct = product;
     this.selectedSize = product.sizes[0];
     this.selectedColor = product.colors[0];
+    this.selectedQuantity = 1;
 
     // Populate modal content
     document.getElementById('modalProductImage').src = product.image;
@@ -287,8 +304,16 @@ class ProductModal {
               onclick="selectColor('${color}')"></button>
     `).join('');
 
+    // Reset quantity display
+    document.getElementById('modalQuantityValue').textContent = this.selectedQuantity;
+
     this.modal.classList.add('active');
     document.body.style.overflow = 'hidden';
+  }
+
+  updateQuantity(change) {
+    this.selectedQuantity = Math.max(1, this.selectedQuantity + change);
+    document.getElementById('modalQuantityValue').textContent = this.selectedQuantity;
   }
 
   close() {
@@ -305,24 +330,27 @@ class ProductModal {
 
   selectColor(color) {
     this.selectedColor = color;
-
     document.querySelectorAll('.color-option').forEach(btn => {
       btn.classList.toggle('selected', btn.getAttribute('data-color') === color);
     });
 
-    // Update image based on selected color
     const colorImage = this.currentProduct.colorImages?.[color];
     document.getElementById('modalProductImage').src = colorImage || this.currentProduct.image;
-
   }
 
   addToCart() {
     if (this.currentProduct && this.selectedSize && this.selectedColor) {
-      cartManager.addToCart(this.currentProduct, this.selectedSize, this.selectedColor);
+      cartManager.addToCart(
+        this.currentProduct,
+        this.selectedSize,
+        this.selectedColor,
+        this.selectedQuantity // ✅ Pass quantity to cart
+      );
       this.close();
     }
   }
 }
+
 
 // Initialize managers
 let productManager;

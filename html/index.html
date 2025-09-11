@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="../css/platform.css">
   <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/navbar.css">
   <style>
     .updates-form {
       background: rgba(0, 0, 0, 0.7);
@@ -81,14 +82,30 @@
     </div>
   </nav>
 
+
+  
   <!-- Navbar for Mobile (Hamburger) -->
   <nav class="bg-[var(--transparent)] sticky top-0 z-50 px-6 py-4 flex md:hidden justify-between items-center">
     <div class="text-xl font-bold">Axios</div>
+    <!-- <button id="btn-theme" class="pill" title="Toggle theme">🌙</button> -->
     <div class="text-xl" onclick="toggleMenu()">
-      <i class="fas fa-bars"></i>
+      <!-- <i class="fas fa-bars"></i> -->
+       <button class="navbar-toggle">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        <ul class="navbar-menu" id="mobileMenu">
+            <li>Home</li>
+            <li>About</li>
+            <li>Blog</li>
+            <li>Shop</li>
+            <li>Shop</li>
+        </ul>
     </div>
+    
   </nav>
-  <div id="mobileMenu" class="md:hidden hidden bg-[var(--transparenty)] px-6 py-4 space-y-2">
+  <!-- <div id="mobileMenu" class="md:hidden hidden bg-[var(--transparent)] px-6 py-4 space-y-2">
     <a href="#home" class="block hover:text-[var(--accent)]"><i class="fas fa-house"></i> Home</a>
     <a href="shop.html" class="block hover:text-[var(--accent)]"><i class="fas fa-store"></i> Shop</a>
     <a href="about.html" class="block hover:text-[var(--accent)]"><i class="fas fa-circle-info"></i> About</a>
@@ -100,10 +117,31 @@
       <i class="fas fa-cart-shopping"></i> Checkout
       <span id="cartCountMobile" style="display: none;">0</span>
     </a>
-  </div>
+  </div> -->
+
+ <!-- Mobile Menu -->
+<!-- Slide-in Menu -->
+<div id="mobileMenu" class="mobile-menu">
+  <a href="#home"><i class="fas fa-house"></i> Home</a>
+  <a href="shop.html"><i class="fas fa-store"></i> Shop</a>
+  <a href="about.html"><i class="fas fa-circle-info"></i> About</a>
+  <a href="blog.html"><i class="fas fa-blog"></i> Blog</a>
+  <a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
+  <a href="login.html"><i class="fas fa-user"></i> Login</a>
+  <button onclick="toggleForm()"><i class="fas fa-bell"></i> Updates</button>
+  <a href="checkout.html" class="cart-icon">
+    <i class="fas fa-cart-shopping"></i> Checkout
+    <span id="cartCountMobile" style="display:none;">0</span>
+  </a>
+</div>
+
+<!-- Backdrop -->
+<div id="menuBackdrop" class="menu-backdrop"></div>
+
+
 
   <!-- Hero -->
-  <header id="home" class="h-screen flex items-center justify-center bg-cover bg-center text-center px-6 parallax" style="background-image: url('../axios/hero2.jpg');" data-speed="0.5">
+  <header id="home" class="h-screen flex items-center justify-center bg-cover bg-center text-center px-6 parallax"  data-speed="0.5">
     <div class="hero-content fade-in"id="heroContent">
       <h1 class="text-5xl md:text-7xl font-bold text-white drop-shadow-xl typing-text">Not Just Style, Its Confidence in Motion</h1>
       <p class="text-xl md:text-2xl text-white mt-4 opacity-90">Express your unique style with Axios Apparel</p>
@@ -118,78 +156,136 @@
 
 
 
-  <!-- Category Slider Section: Parallax Effect & Scroll Snap for Smooth Horizontal Scrolling -->
-  <section class="w-full bg-[var(--bg)] py-10 px-4 overflow-hidden" id="categorySliderSection" style="position: relative;">
-    <h2 class="text-3xl md:text-4xl font-bold text-center mb-8">Shop by Category</h2>
-    <div class="relative w-full">
-      <div class="flex gap-6 w-max overflow-x-auto snap-x snap-mandatory" id="parallaxCategorySlider" style="scroll-behavior: smooth;">
-        <a href="./shop.html?category=men" class="block w-[300px] hover:opacity-80 snap-center">
-          <img src="../Merch and T-Shirts/maze-official-logo-tee.jpg" alt="Men's Wear" class="rounded-lg shadow-lg w-full h-64 object-cover">
-          <p class="text-center mt-2 font-semibold">Men's Wear</p>
-        </a>
-        <a href="./shop.html?category=women" class="block w-[300px] hover:opacity-80 snap-center">
-          <img src="../Merch and T-Shirts/PosterMaker_18012025_150305.jpg" alt="Women's Wear" class="rounded-lg shadow-lg w-full h-64 object-cover">
-          <p class="text-center mt-2 font-semibold">Women's Wear</p>
-        </a>
-        <a href="./shop.html?category=unisex" class="block w-[300px] hover:opacity-80 snap-center">
-          <img src="../Merch and T-Shirts/Maze_T-shirt-Army_Green.jpg" alt="Unisex" class="rounded-lg shadow-lg w-full h-64 object-cover">
-          <p class="text-center mt-2 font-semibold">Unisex</p>
-        </a>
-        <a href="./shop.html?category=shoes" class="block w-[300px] hover:opacity-80 snap-center">
-          <img src="../Merch and T-Shirts/Maze_T-shirt-Army_Green.jpg" alt="Shoes" class="rounded-lg shadow-lg w-full h-64 object-cover">
-          <p class="text-center mt-2 font-semibold">Shoes</p>
-        </a>
-        <a href="./shop.html?category=accessories" class="block w-[300px] hover:opacity-80 snap-center">
-          <img src="../Merch and T-Shirts/PosterMaker_18012025_123056.jpg" alt="Accessories" class="rounded-lg shadow-lg w-full h-64 object-cover">
-          <p class="text-center mt-2 font-semibold">Accessories</p>
-        </a>
-        <a href="./shop.html?category=men" class="block w-[300px] hover:opacity-80 snap-center">
-          <img src="../Merch and T-Shirts/maze-official-logo-tee.jpg" alt="Men's Wear" class="rounded-lg shadow-lg w-full h-64 object-cover">
-          <p class="text-center mt-2 font-semibold">Men's Wear</p>
-        </a>
-        <a href="./shop.html?category=women" class="block w-[300px] hover:opacity-80 snap-center">
-          <img src="../Merch and T-Shirts/PosterMaker_18012025_150305.jpg" alt="Women's Wear" class="rounded-lg shadow-lg w-full h-64 object-cover">
-          <p class="text-center mt-2 font-semibold">Women's Wear</p>
-        </a>
+ 
 
-        <a href="./shop.html?category=unisex" class="block w-[300px] hover:opacity-80 snap-center">
-          <img src="../Merch and T-Shirts/Maze_T-shirt-Army_Green.jpg" alt="Unisex" class="rounded-lg shadow-lg w-full h-64 object-cover">
-          <p class="text-center mt-2 font-semibold">Unisex</p>
+<!-- New Arrivals Section -->
+<section class="w-full bg-[var(--bg)] py-16 px-6" id="newArrivals">
+  <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">NEW ARRIVALS</h2>
 
-        </a>
+  <!-- Product Grid -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
 
-        <a href="./shop.html?category=shoes" class="block w-[300px] hover:opacity-80 snap-center">
-          <img src="../Merch and T-Shirts/Maze_T-shirt-Army_Green.jpg" alt="Shoes" class="rounded-lg shadow-lg w-full h-64 object-cover">
-          <p class="text-center mt-2 font-semibold">Shoes</p>
-        </a>
-        
+    <!-- Product Card -->
+    <div class="bg rounded-2xl shadow-md p-6 text-center">
+      <img src="../Merch and T-Shirts/maze-official-logo-tee.jpg" alt="T-shirt with Tape Details" class="mx-auto mb-4 h-64 object-contain">
+      <h3 class="font-semibold text-lg">T-shirt with Tape Details</h3>
+      <div class="flex items-center justify-center mt-2 text-yellow-400">
+        ★★★★☆ <span class="ml-2 text-gray-600 text-sm">4.5/5</span>
       </div>
-      <div class="flex justify-center mt-6">
-        <button id="continueBtn" class="bg-[var(--accent)] text-white px-6 py-2 rounded hidden">Continue</button>
+      <p class="text-lg font-bold mt-2">$120</p>
+    </div>
+
+    <!-- Product Card with Discount -->
+    <div class="bg rounded-2xl shadow-md p-6 text-center">
+      <img src="../Merch and T-Shirts/PosterMaker_18012025_123056.jpg" alt="Skinny Fit Jeans" class="mx-auto mb-4 h-64 object-contain">
+      <h3 class="font-semibold text-lg">Skinny Fit Jeans</h3>
+      <div class="flex items-center justify-center mt-2 text-yellow-400">
+        ★★★☆☆ <span class="ml-2 text-gray-600 text-sm">3.5/5</span>
+      </div>
+      <div class="mt-2 flex justify-center items-center gap-2">
+        <p class="text-lg font-bold">$240</p>
+        <p class="text-gray-400 line-through">$260</p>
+        <span class="bg-red-100 text-red-500 text-sm px-2 py-1 rounded-full">-20%</span>
       </div>
     </div>
-  </section>
+
+    <!-- Product Card -->
+    <div class="bg rounded-2xl shadow-md p-6 text-center">
+      <img src="../Merch and T-Shirts/Maze_T-shirt-Army_Green.jpg" alt="Checkered Shirt" class="mx-auto mb-4 h-64 object-contain">
+      <h3 class="font-semibold text-lg">Checkered Shirt</h3>
+      <div class="flex items-center justify-center mt-2 text-yellow-400">
+        ★★★★☆ <span class="ml-2 text-gray-600 text-sm">4.5/5</span>
+      </div>
+      <p class="text-lg font-bold mt-2">$180</p>
+    </div>
+
+    <!-- Product Card with Discount -->
+    <div class="bg rounded-2xl shadow-md p-6 text-center">
+      <img src="../Merch and T-Shirts/PosterMaker_18012025_150305.jpg" alt="Sleeve Striped T-shirt" class="mx-auto mb-4 h-64 object-contain">
+      <h3 class="font-semibold text-lg">Sleeve Striped T-shirt</h3>
+      <div class="flex items-center justify-center mt-2 text-yellow-400">
+        ★★★★☆ <span class="ml-2 text-gray-600 text-sm">4.5/5</span>
+      </div>
+      <div class="mt-2 flex justify-center items-center gap-2">
+        <p class="text-lg font-bold">$130</p>
+        <p class="text-gray-400 line-through">$160</p>
+        <span class="bg-red-100 text-red-500 text-sm px-2 py-1 rounded-full">-30%</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- View All Button -->
+  <div class="flex justify-center mt-12">
+    <a href="./shop.html" class="px-8 py-3 rounded-full border border-gray-300 hover:bg-gray-100 transition">View All</a>
+  </div>
+</section>
+
+<section class="w-full bg-[var(--bg)] py-16 px-6" id="newArrivals">
+  <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">BEST SELLERS</h2>
+
+  <!-- Product Grid -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+
+    <!-- Product Card -->
+    <div class="bg rounded-2xl shadow-md p-6 text-center">
+      <img src="../Merch and T-Shirts/maze-official-logo-tee.jpg" alt="T-shirt with Tape Details" class="mx-auto mb-4 h-64 object-contain">
+      <h3 class="font-semibold text-lg">T-shirt with Tape Details</h3>
+      <div class="flex items-center justify-center mt-2 text-yellow-400">
+        ★★★★☆ <span class="ml-2 text-gray-600 text-sm">4.5/5</span>
+      </div>
+      <p class="text-lg font-bold mt-2">$120</p>
+    </div>
+
+    <!-- Product Card with Discount -->
+    <div class="bg rounded-2xl shadow-md p-6 text-center">
+      <img src="../Merch and T-Shirts/PosterMaker_18012025_123056.jpg" alt="Skinny Fit Jeans" class="mx-auto mb-4 h-64 object-contain">
+      <h3 class="font-semibold text-lg">Skinny Fit Jeans</h3>
+      <div class="flex items-center justify-center mt-2 text-yellow-400">
+        ★★★☆☆ <span class="ml-2 text-gray-600 text-sm">3.5/5</span>
+      </div>
+      <div class="mt-2 flex justify-center items-center gap-2">
+        <p class="text-lg font-bold">$240</p>
+        <p class="text-gray-400 line-through">$260</p>
+        <span class="bg-red-100 text-red-500 text-sm px-2 py-1 rounded-full">-20%</span>
+      </div>
+    </div>
+
+    <!-- Product Card -->
+    <div class="bg rounded-2xl shadow-md p-6 text-center">
+      <img src="../Merch and T-Shirts/Maze_T-shirt-Army_Green.jpg" alt="Checkered Shirt" class="mx-auto mb-4 h-64 object-contain">
+      <h3 class="font-semibold text-lg">Checkered Shirt</h3>
+      <div class="flex items-center justify-center mt-2 text-yellow-400">
+        ★★★★☆ <span class="ml-2 text-gray-600 text-sm">4.5/5</span>
+      </div>
+      <p class="text-lg font-bold mt-2">$180</p>
+    </div>
+
+    <!-- Product Card with Discount -->
+    <div class="bg rounded-2xl shadow-md p-6 text-center">
+      <img src="../Merch and T-Shirts/PosterMaker_18012025_150305.jpg" alt="Sleeve Striped T-shirt" class="mx-auto mb-4 h-64 object-contain">
+      <h3 class="font-semibold text-lg">Sleeve Striped T-shirt</h3>
+      <div class="flex items-center justify-center mt-2 text-yellow-400">
+        ★★★★☆ <span class="ml-2 text-gray-600 text-sm">4.5/5</span>
+      </div>
+      <div class="mt-2 flex justify-center items-center gap-2">
+        <p class="text-lg font-bold">$130</p>
+        <p class="text-gray-400 line-through">$160</p>
+        <span class="bg-red-100 text-red-500 text-sm px-2 py-1 rounded-full">-30%</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- View All Button -->
+  <div class="flex justify-center mt-12">
+    <a href="./shop.html" class="px-8 py-3 rounded-full border border-gray-300 hover:bg-gray-100 transition">View All</a>
+  </div>
+</section>
   <!-- Parallax Effect for Category Slider -->
    <!-- Category Slider Section: Horizontal Scroll Experience -->
 
 
-  <!-- Product Listings (dynamic content loaded with JS) -->
-  <section class="max-w-6xl mx-auto px-6 py-10 slide-up" id="shop">
-    <h2 class="text-4xl font-bold mb-10 text-center">Explore Our Collection</h2>
-    <div class="category-buttons">
-      <button class="category-btn active" data-category="all">All</button>
-      <button class="category-btn" data-category="men">Men</button>
-      <button class="category-btn" data-category="women">Women</button>
-      <button class="category-btn" data-category="unisex" type="button">Unisex</button>
-      <button class="category-btn" data-category="accessories">Accessories</button>
-      <button class="category-btn" data-category="shoes">Shoes</button>
-      <button class="category-btn" data-category="streetwear">Streetwear</button>
-      <button class="category-btn" data-category="new-arrivals">New Arrivals</button>
-    </div>
-    <div id="productList" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-      <!-- Product items will be rendered here -->
-    </div>
-  </section>
 
   <!-- Account Modal Pages -->
   <div id="authModal" class="fixed inset-0 hidden justify-center items-center bg-black bg-opacity-75 z-50">
@@ -203,9 +299,9 @@
       <button onclick="document.getElementById('authModal').classList.add('hidden')" class="mt-4 text-sm underline">Cancel</button>
     </div>
   </div>
-  <div class="more">
+  <!-- <div class="more">
     <button id="shopmore"><a href="/html/shop.html" class="block hover:text-[var(--accent)]">Shop More</a></button>
-  </div>
+  </div> -->
    
 
 
@@ -214,7 +310,7 @@
 
 
 <!-- Join Movement Section -->
-<section class="section join-movement bg-[var(--secondary)] py-16 px-6 text-center rounded-lg shadow-lg my-12" id="movement">
+<!-- <section class="section join-movement bg-[var(--secondary)] py-16 px-6 text-center rounded-lg shadow-lg my-12" id="movement">
   <div class="max-w-4xl mx-auto px-6">
     <h2 class="text-4xl font-bold mb-4 text-white ">Join the Movement</h2>
     <p class="text-lg mb-8 text-white opacity-90">
@@ -222,104 +318,121 @@
     </p>
     <a href="#shop" class="btn btn-secondary text-white px-6 py-2 rounded font-semibold hover:bg-red-700 transition">Shop & Support</a>
   </div>
-</section>
-
-
-
-
-
-
-
-
-  <!-- Contact Section -->
-<!-- <section id="contact" class="max-w-4xl mx-auto px-6 py-20 text-center">
-  <h2 class="text-4xl font-bold mb-6">Contact Us</h2>
-  <p class="text-lg mb-10">Got questions or feedback? We'd love to hear from you!</p>
-  <form class="space-y-6 bg-[var(--secondary)] p-8 rounded-lg shadow-xl text-left">
-    <div>
-      <label class="block text-sm font-semibold mb-1" for="name">Name</label>
-      <input type="text" id="name" class="w-full px-4 py-2 rounded bg-white text-black" required />
-    </div>
-    <div>
-      <label class="block text-sm font-semibold mb-1" for="email">Email</label>
-      <input type="email" id="email" class="w-full px-4 py-2 rounded bg-white text-black" required />
-    </div>
-    <div>
-      <label class="block text-sm font-semibold mb-1" for="message">Message</label>
-      <textarea id="message" rows="4" class="w-full px-4 py-2 rounded bg-white text-black" required></textarea>
-    </div>
-    <button type="submit" class="bg-[var(--accent)] text-white px-6 py-2 rounded hover:bg-red-700 transition" >
-      Send Message
-    </button>
-  </form>
 </section> -->
+
+
+
+
+
+
+
+
+ 
+
 <!-- Contact Section -->
-<!-- Contact Section -->
-<section id="contact" class="max-w-4xl mx-auto px-6 py-20">
-  <h2 class="text-4xl font-bold text-center mb-4">Get in Touch</h2>
-  <p class="text-lg text-center text-gray-600 mb-10">
-    Have questions, feedback, or partnership inquiries? We’d love to hear from you.
-  </p>
-
-  <form id="contactForm" class="space-y-6 bg-[var(--secondary)] p-8 rounded-lg shadow-xl" novalidate>
-    <!-- Name -->
-    <div>
-      <label for="name" class="block text-sm font-semibold mb-2">Full Name</label>
-      <input 
-        type="text" 
-        id="name" 
-        name="name" 
-        placeholder="John Doe"
-        class="w-full px-4 py-3 rounded bg-white text-black border border-gray-300 focus:border-[var(--accent)] focus:ring-2 focus:ring-[var(--accent)] outline-none" 
-        required
-      />
-      <small class="text-red-500 hidden" id="nameError">Please enter your name.</small>
-    </div>
-
-    <!-- Email -->
-    <div>
-      <label for="email" class="block text-sm font-semibold mb-2">Email Address</label>
-      <input 
-        type="email" 
-        id="email" 
-        name="email" 
-        placeholder="you@example.com"
-        class="w-full px-4 py-3 rounded bg-white text-black border border-gray-300 focus:border-[var(--accent)] focus:ring-2 focus:ring-[var(--accent)] outline-none" 
-        required
-      />
-      <small class="text-red-500 hidden" id="emailError">Please enter a valid email address.</small>
-    </div>
-
-    <!-- Message -->
-    <div>
-      <label for="message" class="block text-sm font-semibold mb-2">Message</label>
-      <textarea 
-        id="message" 
-        name="message" 
-        rows="4" 
-        placeholder="Your message..."
-        class="w-full px-4 py-3 rounded bg-white text-black border border-gray-300 focus:border-[var(--accent)] focus:ring-2 focus:ring-[var(--accent)] outline-none" 
-        required
-      ></textarea>
-      <small class="text-red-500 hidden" id="messageError">Please enter a message.</small>
-    </div>
-
-    <!-- Submit Button -->
-    <div class="text-center">
-      <button 
-        type="submit" 
-        class="bg-[var(--accent)] text-white px-8 py-3 rounded-lg font-semibold hover:bg-red-700 transition"
-      >
-        Send Message
+ <!-- Newsletter + Footer Section -->
+<footer class="bg-gray-100 text-gray-800">
+  <!-- Newsletter Signup -->
+  <div class="bg-black text-white rounded-2xl max-w-6xl mx-auto px-6 py-10 flex flex-col md:flex-row items-center justify-between -mt-16 relative z-10">
+    <h2 class="text-2xl md:text-3xl font-extrabold mb-6 md:mb-0 text-center md:text-left">
+      STAY UPTO DATE ABOUT <br /> OUR LATEST OFFERS
+    </h2>
+    <div class="flex flex-col gap-4 w-full md:w-1/2">
+      <button id="subscribeBtn" class="bg-white text-black font-semibold px-6 py-3 rounded-full hover:bg-gray-200 transition" onclick="toggleForm()">
+        Subscribe to Newsletter
       </button>
     </div>
+  </div>
 
-    <!-- Success Message -->
-    <p id="successMessage" class="text-green-500 text-center mt-4 hidden">
-      ✅ Your message has been sent successfully!
-    </p>
-  </form>
-</section>
+  <!-- Footer Content -->
+  <div class="max-w-6xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-5 gap-12 bg-[var(--bg)]">
+    <!-- Brand -->
+    <div class="md:col-span-1 bg-[var(--bg)]">
+      <h3 class="font-extrabold text-2xl mb-4 color text-white-50">Axios</h3>
+      <p class="text-gray-600 mb-6">
+        We have clothes that suits your style and which you’re proud to wear. From women to men.
+      </p>
+      <div class="flex gap-4 filter invert(1)">
+        <a href="#"><img src="../icons/apple-pay.svg"></a>
+        <a href="#"><img src="../icons/apple-pay.svg"></a>
+        <a href="#"><img src="../icons/apple-pay.svg"></a>
+        <a href="#"><img src="../icons/apple-pay.svg"></a>
+      </div>
+    </div>
+
+    <!-- Company -->
+    <div>
+      <h4 class="font-bold mb-4 color text-white-50">COMPANY</h4>
+      <ul class="space-y-2 color text-white-50">
+        <li><a href="#" class="hover:underline">About</a></li>
+        <li><a href="#" class="hover:underline">Features</a></li>
+        <li><a href="#" class="hover:underline">Works</a></li>
+        <li><a href="#" class="hover:underline">Career</a></li>
+      </ul>
+    </div>
+
+    <!-- Help -->
+    <div>
+      <h4 class="font-bold mb-4 color text-white-50">HELP</h4>
+      <ul class="space-y-2 color text-white-50">
+        <li><a href="#" class="hover:underline">Customer Support</a></li>
+        <li><a href="#" class="hover:underline">Delivery Details</a></li>
+        <li><a href="#" class="hover:underline">Terms & Conditions</a></li>
+        <li><a href="#" class="hover:underline">Privacy Policy</a></li>
+      </ul>
+    </div>
+
+    <!-- FAQ -->
+    <div>
+      <h4 class="font-bold mb-4 color text-white-50">FAQ</h4>
+      <ul class="space-y-2 color text-white-50">
+        <li><a href="#" class="hover:underline">Account</a></li>
+        <li><a href="#" class="hover:underline">Manage Deliveries</a></li>
+        <li><a href="#" class="hover:underline">Orders</a></li>
+        <li><a href="#" class="hover:underline">Payments</a></li>
+      </ul>
+    </div>
+
+    <!-- Resources -->
+    <div>
+      <h4 class="font-bold mb-4 color text-white-50">RESOURCES</h4>
+      <ul class="space-y-2 color text-white-50">
+        <li><a href="#" class="hover:underline">Free eBooks</a></li>
+        <li><a href="#" class="hover:underline">Development Tutorial</a></li>
+        <li><a href="#" class="hover:underline">How to - Blog</a></li>
+        <li><a href="#" class="hover:underline">Youtube Playlist</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Bottom Bar -->
+  <div class="border-t border-gray-300 py-6 px-6 max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center text-sm text-gray-600">
+    <p>Axios © <span id="year"></span>, All Rights Reserved</p>
+    <div class="flex gap-4 mt-4 md:mt-0">
+      <img src="../icons/cc-mastercard.svg" alt="Visa" class="h-6">
+      <img src="../icons/cc-paypal.svg" alt="PayPal" class="h-6">
+      <img src="../icons/apple-pay.svg" alt="Apple Pay" class="h-6">
+      <img src="../icons/google-pay.svg" alt="Google Pay" class="h-6">
+    </div>
+  </div>
+</footer>
+
+<!-- JavaScript -->
+<script>
+  document.getElementById("subscribeBtn").addEventListener("click", function () {
+    const email = document.getElementById("newsletterEmail").value.trim();
+    if (!email) {
+      alert("Please enter your email address!");
+    } else if (!/^[^@]+@[^@]+\.[^@]+$/.test(email)) {
+      alert("Please enter a valid email address!");
+    } else {
+      alert(`Thank you for subscribing, ${email}!`);
+      document.getElementById("newsletterEmail").value = "";
+    }
+  });
+</script>
+
+
 
 <!-- JS Validation & Submission -->
 <script>
@@ -676,33 +789,30 @@ document.getElementById('contactForm').addEventListener('submit', async function
 
   <!-- Footer -->
   <footer class="bg-[var(--transparent)] text-center py-6 text-sm">
-      <div class="flex justify-center space-x-6 mt-4">
+    <div class="text-2xl font-bold">Axios</div>
+      <!-- <div class="flex justify-center space-x-6 mt-4">
   <a href="https://facebook.com" target="_blank" class="hover:text-[var(--accent)] text-xl">
-    <i class="fab fa-facebook-f"></i>
+  
+    <img src="../icons/facebook-f.svg" id="FA-icons">
   </a>
   <a href="https://twitter.com" target="_blank" class="hover:text-[var(--accent)] text-xl">
-    <i class="fab fa-twitter"></i>
+    <img src="../icons/x-twitter.svg" id="FA-icons">
   </a>
   <a href="https://instagram.com" target="_blank" class="hover:text-[var(--accent)] text-xl">
-    <i class="fab fa-instagram"></i>
+    <img src="../icons/instagram.svg" id="FA-icons">
   </a>
   <a href="https://youtube.com" target="_blank" class="hover:text-[var(--accent)] text-xl">
-    <i class="fab fa-youtube"></i>
+    <img src="../icons/youtube.svg" id="FA-icons">
   </a>
   <a href="https://tiktok.com" target="_blank" class="hover:text-[var(--accent)] text-xl">
-    <i class="fab fa-tiktok"></i>
+    <img src="../icons/tiktok.svg" id="FA-icons">
   </a>
 </div>
-    <p>&copy; <span id="year"></span> Axios Apparel.</p>
+    <p>&copy; <span id="year"></span> Axios Apparel.</p> -->
     <div id="google_translate_element"class="translation"></div>
 
 <script type="text/javascript">
-  function googleTranslateElementInit() {
-    new google.translate.TranslateElement(
-      {pageLanguage: 'en', includedLanguages: 'fr,de,es,zh,ar,sw'},
-      'google_translate_element'
-    );
-  }
+
 </script>
 
 <script type="text/javascript"src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
@@ -746,5 +856,8 @@ document.getElementById('contactForm').addEventListener('submit', async function
 <script src="../js/help.js"></script>
 <script src="../js/backToTop.js"></script>
 <script src="../js/year.js"></script>
+<script src="../js/translate.js"></script>
+<script src="../js/nav.js"></script>
+<!-- <script src="../js/theme.js"></script> -->
 
 </html>

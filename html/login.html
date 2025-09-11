@@ -362,40 +362,92 @@
   </div>
 </div>
 
-  <footer class="bg-[var(--secondary)] text-center py-6 text-sm mt-10">
-      <div class="flex justify-center space-x-6 mt-4">
-  <a href="https://facebook.com" target="_blank" class="hover:text-[var(--accent)] text-xl">
-    <i class="fab fa-facebook-f"></i>
-  </a>
-  <a href="https://twitter.com" target="_blank" class="hover:text-[var(--accent)] text-xl">
-    <i class="fab fa-twitter"></i>
-  </a>
-  <a href="https://instagram.com" target="_blank" class="hover:text-[var(--accent)] text-xl">
-    <i class="fab fa-instagram"></i>
-  </a>
-  <a href="https://youtube.com" target="_blank" class="hover:text-[var(--accent)] text-xl">
-    <i class="fab fa-youtube"></i>
-  </a>
-  <a href="https://tiktok.com" target="_blank" class="hover:text-[var(--accent)] text-xl">
-    <i class="fab fa-tiktok"></i>
-  </a>
-</div>
-    <p>&copy; <span id="year"></span> Axios Apparel.</p>
+  <!-- Newsletter + Footer Section -->
+<footer class="bg-gray-100 text-gray-800">
+  <!-- Newsletter Signup -->
+  <div class="bg-black text-white rounded-2xl max-w-6xl mx-auto px-6 py-10 flex flex-col md:flex-row items-center justify-between -mt-16 relative z-10">
+    <h2 class="text-2xl md:text-3xl font-extrabold mb-6 md:mb-0 text-center md:text-left">
+      STAY UPTO DATE ABOUT <br /> OUR LATEST OFFERS
+    </h2>
+    <div class="flex flex-col gap-4 w-full md:w-1/2">
+      <button id="subscribeBtn" class="bg-white text-black font-semibold px-6 py-3 rounded-full hover:bg-gray-200 transition" onclick="toggleForm()">
+        Subscribe to Newsletter
+      </button>
+    </div>
+  </div>
 
-    <div id="google_translate_element"class="translation"></div>
+  <!-- Footer Content -->
+  <div class="max-w-6xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-5 gap-12 bg-[var(--bg)]">
+    <!-- Brand -->
+    <div class="md:col-span-1 bg-[var(--bg)]">
+      <h3 class="font-extrabold text-2xl mb-4 color text-white-50">Axios</h3>
+      <p class="text-gray-600 mb-6">
+        We have clothes that suits your style and which you’re proud to wear. From women to men.
+      </p>
+      <div class="flex gap-4 filter invert(1)">
+        <a href="#"><img src="../icons/apple-pay.svg"></a>
+        <a href="#"><img src="../icons/apple-pay.svg"></a>
+        <a href="#"><img src="../icons/apple-pay.svg"></a>
+        <a href="#"><img src="../icons/apple-pay.svg"></a>
+      </div>
+    </div>
 
-<script type="text/javascript">
-  function googleTranslateElementInit() {
-    new google.translate.TranslateElement(
-      {pageLanguage: 'en', includedLanguages: 'fr,de,es,zh,ar,sw'},
-      'google_translate_element'
-    );
-  }
-</script>
+    <!-- Company -->
+    <div>
+      <h4 class="font-bold mb-4 color text-white-50">COMPANY</h4>
+      <ul class="space-y-2 color text-white-50">
+        <li><a href="#" class="hover:underline">About</a></li>
+        <li><a href="#" class="hover:underline">Features</a></li>
+        <li><a href="#" class="hover:underline">Works</a></li>
+        <li><a href="#" class="hover:underline">Career</a></li>
+      </ul>
+    </div>
 
-<script type="text/javascript"src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
-</script>
-  </footer>
+    <!-- Help -->
+    <div>
+      <h4 class="font-bold mb-4 color text-white-50">HELP</h4>
+      <ul class="space-y-2 color text-white-50">
+        <li><a href="#" class="hover:underline">Customer Support</a></li>
+        <li><a href="#" class="hover:underline">Delivery Details</a></li>
+        <li><a href="#" class="hover:underline">Terms & Conditions</a></li>
+        <li><a href="#" class="hover:underline">Privacy Policy</a></li>
+      </ul>
+    </div>
+
+    <!-- FAQ -->
+    <div>
+      <h4 class="font-bold mb-4 color text-white-50">FAQ</h4>
+      <ul class="space-y-2 color text-white-50">
+        <li><a href="#" class="hover:underline">Account</a></li>
+        <li><a href="#" class="hover:underline">Manage Deliveries</a></li>
+        <li><a href="#" class="hover:underline">Orders</a></li>
+        <li><a href="#" class="hover:underline">Payments</a></li>
+      </ul>
+    </div>
+
+    <!-- Resources -->
+    <div>
+      <h4 class="font-bold mb-4 color text-white-50">RESOURCES</h4>
+      <ul class="space-y-2 color text-white-50">
+        <li><a href="#" class="hover:underline">Free eBooks</a></li>
+        <li><a href="#" class="hover:underline">Development Tutorial</a></li>
+        <li><a href="#" class="hover:underline">How to - Blog</a></li>
+        <li><a href="#" class="hover:underline">Youtube Playlist</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Bottom Bar -->
+  <div class="border-t border-gray-300 py-6 px-6 max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center text-sm text-gray-600">
+    <p>Axios © <span id="year"></span>, All Rights Reserved</p>
+    <div class="flex gap-4 mt-4 md:mt-0">
+      <img src="../icons/cc-mastercard.svg" alt="Visa" class="h-6">
+      <img src="../icons/cc-paypal.svg" alt="PayPal" class="h-6">
+      <img src="../icons/apple-pay.svg" alt="Apple Pay" class="h-6">
+      <img src="../icons/google-pay.svg" alt="Google Pay" class="h-6">
+    </div>
+  </div>
+</footer>
 
   <script>
    

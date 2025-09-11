@@ -1,0 +1,124 @@
+/* Core Navbar */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 70px;
+  width: 100%;
+  position: sticky;
+  top: 0;
+  background-color: var(--transparent); /* keeps theme color */
+  z-index: 999;
+}
+
+/* Container with Logo + Hamburger */
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+}
+
+/* Logo */
+.navbar-logo {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: white;
+  text-decoration: none;
+}
+
+/* Hamburger Toggle */
+.navbar-toggle {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  padding: 8px;
+  z-index: 1000;
+  color: white;
+}
+ 
+.navbar-menu {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.8rem, 2vw, 1.5rem);
+  list-style: none;
+  text-align: center;
+  
+}
+.bar {
+  display: block;
+  width: 32px;
+  height: 3px;
+  transition: all 0.3s ease-in-out;
+  background-color:white;
+  border-radius: 1px;
+}
+
+option{
+  background-color: black;
+  color: white;
+}
+
+/* Animate Hamburger -> X */
+.navbar-toggle.active .bar:nth-child(2){
+    opacity: 0;
+}
+
+.navbar-toggle.active .bar:nth-child(1){
+    transform: translateY(8px) rotate(45deg);
+}
+
+.navbar-toggle.active .bar:nth-child(3){
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Mobile Menu */
+.navbar-menu {
+  flex-direction: column;
+  align-items: flex-start;
+  list-style: none;
+  text-align: left;
+  gap: 1.5rem;
+  position: absolute;
+  height: 100vh;
+  width: 240px;
+  top: 0;
+  right: -100%;
+  padding: 5rem 1.5rem;
+  background-color: var(--transparenty);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+  transition: right 0.3s ease;
+}
+
+.navbar-menu li a,
+.navbar-menu li button {
+  text-decoration: none;
+  color: black;
+  font-size: 1.2rem;
+  font-weight: 500;
+  display: block;
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  background: transparent;
+  text-align: left;
+}
+
+.navbar-menu li a:hover,
+.navbar-menu li button:hover {
+  color: var(--accent);
+  background-color: black;
+  border-color: black;
+}
+
+/* Show Menu */
+.navbar-menu.show {
+  right: 0;
+}
