@@ -41,6 +41,16 @@ document.querySelectorAll('#mobileMenu a, #mobileMenu button').forEach(link => {
   });
 });
 
+const toggle = document.getElementById('mobileToggle');
+const menu = document.getElementById('mobileMenu');
+
+toggle.addEventListener('click', () => {
+  toggle.classList.toggle('active');
+  menu.classList.toggle('show');
+});
+// Close menu if backdrop clicked
+document.getElementById("menuBackdrop").addEventListener("click", toggleMenu);  
+
 
 
 
