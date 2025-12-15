@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+
   <link rel="stylesheet" href="../css/platform.css">
   <link rel="stylesheet" href="../css/styles.css">
   <link rel="stylesheet" href="../css/navbar.css">
@@ -84,7 +84,7 @@
 
 
   
-  <!-- Navbar for Mobile (Hamburger) -->
+<!-- Navbar for Mobile (Hamburger) -->
 <nav class="bg-[var(--transparent)] sticky top-0 z-50 px-6 py-4 flex md:hidden justify-between items-center relative">
   <div class="text-xl font-bold">Axios</div>
 
@@ -93,56 +93,38 @@
     <span class="bar"></span>
     <span class="bar"></span>
   </button>
-
-  <!-- ✅ Move menu OUTSIDE button wrapper -->
-  <ul class="navbar-menu" id="mobileMenu">
-    <li><a href="#home">Home</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#blog">Blog</a></li>
-    <li><a href="#shop">Shop</a></li>
-  </ul>
 </nav>
 
-  <!-- <div id="mobileMenu" class="md:hidden hidden bg-[var(--transparent)] px-6 py-4 space-y-2">
-    <a href="#home" class="block hover:text-[var(--accent)]"><i class="fas fa-house"></i> Home</a>
-    <a href="shop.html" class="block hover:text-[var(--accent)]"><i class="fas fa-store"></i> Shop</a>
-    <a href="about.html" class="block hover:text-[var(--accent)]"><i class="fas fa-circle-info"></i> About</a>
-    <a href="about.html" class="block hover:text-[var(--accent)]"><i class="fas fa-blog"></i> Blog</a>
-    <a href="#contact" class="block hover:text-[var(--accent)]"><i class="fas fa-envelope"></i> Contact</a>
-    <a href="login.html" class="block hover:text-[var(--accent)]"><i class="fas fa-user"></i> Login</a>
-    <button onclick="toggleForm()" class="block w-full text-left hover:text-[var(--accent)]"><i class="fas fa-bell"></i> Updates</button>
-    <a href="checkout.html" class="block hover:text-[var(--accent)] cart-icon">
+<!-- ✅ Mobile Menu (only one instance) -->
+<ul id="mobileMenu" class="navbar-menu">
+  <li><a href="#home"><i class="fas fa-house"></i> Home</a></li>
+  <li><a href="shop.html"><i class="fas fa-store"></i> Shop</a></li>
+  <li><a href="about.html"><i class="fas fa-circle-info"></i> About</a></li>
+  <li><a href="blog.html"><i class="fas fa-blog"></i> Blog</a></li>
+  <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+  <li><a href="login.html"><i class="fas fa-user"></i> Login</a></li>
+  <li><button onclick="toggleForm()"><i class="fas fa-bell"></i> Updates</button></li>
+  <li>
+    <a href="checkout.html" class="cart-icon">
       <i class="fas fa-cart-shopping"></i> Checkout
-      <span id="cartCountMobile" style="display: none;">0</span>
+      <span id="cartCountMobile" style="display:none;">0</span>
     </a>
-  </div> -->
-
- <!-- Mobile Menu -->
-<!-- Slide-in Menu -->
-<div id="mobileMenu" class="mobile-menu">
-  <a href="#home"><i class="fas fa-house"></i> Home</a>
-  <a href="shop.html"><i class="fas fa-store"></i> Shop</a>
-  <a href="about.html"><i class="fas fa-circle-info"></i> About</a>
-  <a href="blog.html"><i class="fas fa-blog"></i> Blog</a>
-  <a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
-  <a href="login.html"><i class="fas fa-user"></i> Login</a>
-  <button onclick="toggleForm()"><i class="fas fa-bell"></i> Updates</button>
-  <a href="checkout.html" class="cart-icon">
-    <i class="fas fa-cart-shopping"></i> Checkout
-    <span id="cartCountMobile" style="display:none;">0</span>
-  </a>
-</div>
+  </li>
+</ul>
 
 <!-- Backdrop -->
-<div id="menuBackdrop" class="menu-backdrop"></div>
+<div id="menuBackdrop" class="menu-backdrop hidden"></div>
+
+
+
 
 
 
   <!-- Hero -->
   <header id="home" class="h-screen flex items-center justify-center bg-cover bg-center text-center px-6 parallax"  data-speed="0.5">
     <div class="hero-content fade-in"id="heroContent">
-      <h1 class="text-5xl md:text-7xl font-bold text-white drop-shadow-xl typing-text">Not Just Style, Its Confidence in Motion</h1>
-      <p class="text-xl md:text-2xl text-white mt-4 opacity-90">Express your unique style with Axios Apparel</p>
+      <h1 class="text-5xl md:text-7xl font-bold text-white drop-shadow-xl typing-text"></h1>
+      <p class="text-xl md:text-2xl text-white mt-4 opacity-90">With Axios Apparel</p>
       <a href="#shop" class="btn btn-primary bg-[var(--accent)] mt-8 inline-block">Shop Now</a>
       <a href="about.html" class="btn btn-secondary mt-8 inline-block">Learn More</a>
     </div>
@@ -297,9 +279,7 @@
       <button onclick="document.getElementById('authModal').classList.add('hidden')" class="mt-4 text-sm underline">Cancel</button>
     </div>
   </div>
-  <!-- <div class="more">
-    <button id="shopmore"><a href="/html/shop.html" class="block hover:text-[var(--accent)]">Shop More</a></button>
-  </div> -->
+  
    
 
 
@@ -307,16 +287,7 @@
 
 
 
-<!-- Join Movement Section -->
-<!-- <section class="section join-movement bg-[var(--secondary)] py-16 px-6 text-center rounded-lg shadow-lg my-12" id="movement">
-  <div class="max-w-4xl mx-auto px-6">
-    <h2 class="text-4xl font-bold mb-4 text-white ">Join the Movement</h2>
-    <p class="text-lg mb-8 text-white opacity-90">
-      Be part of the change. Your style can spark a smile, a meal, or a brighter future for a child.
-    </p>
-    <a href="#shop" class="btn btn-secondary text-white px-6 py-2 rounded font-semibold hover:bg-red-700 transition">Shop & Support</a>
-  </div>
-</section> -->
+
 
 
 
@@ -328,8 +299,6 @@
  
 
 <!-- Contact Section -->
- <!-- Newsletter + Footer Section -->
-<footer class="bg-gray-100 text-gray-800">
   <!-- Newsletter Signup -->
   <div class="bg-black text-white rounded-2xl max-w-6xl mx-auto px-6 py-10 flex flex-col md:flex-row items-center justify-between -mt-16 relative z-10">
     <h2 class="text-2xl md:text-3xl font-extrabold mb-6 md:mb-0 text-center md:text-left">
@@ -341,16 +310,18 @@
       </button>
     </div>
   </div>
-
+ 
+  <!-- Newsletter + Footer Section -->
+<footer class="bg-gray-100 text-gray-800">
   <!-- Footer Content -->
-  <div class="max-w-6xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-5 gap-12 bg-[var(--bg)]">
+  <div class="l mx-auto px-6 py-24 grid grid-cols-1 md:grid-cols-5 gap-12 bg-[var(--bg)]">
     <!-- Brand -->
     <div class="md:col-span-1 bg-[var(--bg)]">
       <h3 class="font-extrabold text-2xl mb-4 color text-white-50">Axios</h3>
       <p class="text-gray-600 mb-6">
         We have clothes that suits your style and which you’re proud to wear. From women to men.
       </p>
-      <div class="flex gap-4 filter invert(1)">
+      <div class="flex gap-4">
         <a href="#"><img src="../icons/apple-pay.svg"></a>
         <a href="#"><img src="../icons/apple-pay.svg"></a>
         <a href="#"><img src="../icons/apple-pay.svg"></a>
@@ -371,12 +342,12 @@
 
     <!-- Help -->
     <div>
-      <h4 class="font-bold mb-4 color text-white-50">HELP</h4>
-      <ul class="space-y-2 color text-white-50">
-        <li><a href="#" class="hover:underline">Customer Support</a></li>
-        <li><a href="#" class="hover:underline">Delivery Details</a></li>
-        <li><a href="#" class="hover:underline">Terms & Conditions</a></li>
-        <li><a href="#" class="hover:underline">Privacy Policy</a></li>
+      <h4 class="font-bold mb-4 color text-white-50" id="helpToggle">HELP</h4>
+      <ul class="space-y-2 color text-white-50" >
+        <li><a href="#" class="hover:underline" id="helpToggle">Customer Support</a></li>
+        <li><a href="#" class="hover:underline" id="helpToggle">Delivery Details</a></li>
+        <li><a href="#" class="hover:underline" id="helpToggle">Terms & Conditions</a></li>
+        <li><a href="#" class="hover:underline" id="helpToggle">Privacy Policy</a></li>
       </ul>
     </div>
 
@@ -404,7 +375,7 @@
   </div>
 
   <!-- Bottom Bar -->
-  <div class="border-t border-gray-300 py-6 px-6 max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center text-sm text-gray-600">
+  <div class="border-t border-gray-200 py-6 px-6 max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center text-sm text-gray-800">
     <p>Axios © <span id="year"></span>, All Rights Reserved</p>
     <div class="flex gap-4 mt-4 md:mt-0">
       <img src="../icons/cc-mastercard.svg" alt="Visa" class="h-6">
@@ -788,25 +759,6 @@ document.getElementById('contactForm').addEventListener('submit', async function
   <!-- Footer -->
   <footer class="bg-[var(--transparent)] text-center py-6 text-sm">
     <div class="text-2xl font-bold">Axios</div>
-      <!-- <div class="flex justify-center space-x-6 mt-4">
-  <a href="https://facebook.com" target="_blank" class="hover:text-[var(--accent)] text-xl">
-  
-    <img src="../icons/facebook-f.svg" id="FA-icons">
-  </a>
-  <a href="https://twitter.com" target="_blank" class="hover:text-[var(--accent)] text-xl">
-    <img src="../icons/x-twitter.svg" id="FA-icons">
-  </a>
-  <a href="https://instagram.com" target="_blank" class="hover:text-[var(--accent)] text-xl">
-    <img src="../icons/instagram.svg" id="FA-icons">
-  </a>
-  <a href="https://youtube.com" target="_blank" class="hover:text-[var(--accent)] text-xl">
-    <img src="../icons/youtube.svg" id="FA-icons">
-  </a>
-  <a href="https://tiktok.com" target="_blank" class="hover:text-[var(--accent)] text-xl">
-    <img src="../icons/tiktok.svg" id="FA-icons">
-  </a>
-</div>
-    <p>&copy; <span id="year"></span> Axios Apparel.</p> -->
     <div id="google_translate_element"class="translation"></div>
 
 <script type="text/javascript">
@@ -856,6 +808,6 @@ document.getElementById('contactForm').addEventListener('submit', async function
 <script src="../js/year.js"></script>
 <script src="../js/translate.js"></script>
 <script src="../js/nav.js"></script>
-<!-- <script src="../js/theme.js"></script> -->
+
 
 </html>

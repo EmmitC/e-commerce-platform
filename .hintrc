@@ -45,6 +45,13 @@
       {
         "duplicate-id-active": "off"
       }
-    ]
+    ],
+    "axe/structure": [
+      "default",
+      {
+        "list": "off"
+      }
+    ],
+    "no-protocol-relative-urls": "off"
   }
 }

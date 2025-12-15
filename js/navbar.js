@@ -13,8 +13,8 @@ function toggleMenu() {
   }
 }
 
-const navbarToggle = document.querySelector('.navbar-toggle');
-const navbarMenu = document.querySelector('.navbar-menu');
+const navbarToggle = document.querySelector('.navbar-toggle, #mobileToggle');
+const navbarMenu = document.querySelector('.navbar-menu , #mobileMenu,mobile-Menu');
 navbarToggle.addEventListener('click', () => {
     navbarToggle.classList.toggle('active');
     navbarMenu.classList.toggle('active');
@@ -25,7 +25,7 @@ navbarToggle.addEventListener('click', () => {
 // Close menu if backdrop clicked
 document.getElementById("menuBackdrop").addEventListener("click", toggleMenu);
 
-document.getElementById("menuBackdrop").addEventListener("click", toggleMenu);
+
 
 // Toggle updates modal form
 function toggleForm() {
@@ -41,16 +41,34 @@ document.querySelectorAll('#mobileMenu a, #mobileMenu button').forEach(link => {
   });
 });
 
-const toggle = document.getElementById('mobileToggle');
-const menu = document.getElementById('mobileMenu');
+
 
 toggle.addEventListener('click', () => {
   toggle.classList.toggle('active');
   menu.classList.toggle('show');
 });
-// Close menu if backdrop clicked
-document.getElementById("menuBackdrop").addEventListener("click", toggleMenu);  
 
 
 
 
+
+const toggle = document.getElementById('mobileToggle');
+const menu = document.getElementById('mobileMenu');
+let backdrop = document.getElementById("menuBackdrop");
+
+
+toggle.addEventListener('click', () => {
+  toggle.classList.toggle('active');
+  menu.classList.toggle('show');
+  backdrop.style.display = menu.classList.contains('show') ? "block" : "none";
+});
+
+
+// Close menu on nav link click
+document.querySelectorAll('#mobileMenu a, #mobileMenu button').forEach(link => {
+  link.addEventListener('click', () => {
+    menu.classList.remove("show");
+    toggle.classList.remove("active");
+    backdrop.style.display = "none";
+  });
+});

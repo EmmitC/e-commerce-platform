@@ -224,7 +224,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const typingElement = document.querySelector('.typing-text');
   if (typingElement) {
     new TypingAnimation(typingElement, [
-      'Wear Confidence. Be Bold.',
+      'Not Just Style, Its confidence in Motion!',
       'Express Your Style.',
       'Stand Out From The Crowd.'
     ]);
