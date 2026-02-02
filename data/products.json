@@ -7,9 +7,9 @@
       "category": "men",
       "colors": ["#000000", "#ffffff", "#e50914"],
       "colorImages": {
-      "#000000": "../Merch-and-T-Shirts/maze-official-logo-tee.jpg",
-      "#ffffff": "../Merch-and-T-Shirts/maze-official-logo-tee-white.jpg",
-      "#e50914": "../Merch-and-T-Shirts/maze-official-logo-tee-red.jpg"
+      "#000000": "../Merch and T-Shirts/maze-official-logo-tee.jpg",
+      "#ffffff": "../Merch and T-Shirts/maze-official-logo-tee-white.jpg",
+      "#e50914": "../Merch and T-Shirts/maze-official-logo-tee-red.jpg"
       },
       "sizes": ["XS", "S", "M", "L", "XL", "XXL"],
       "image": "../Merch and T-Shirts/maze-official-logo-tee.jpg",
@@ -24,8 +24,8 @@
       "category": "unisex",
       "colors": ["#4a5d23", "#000000"],
       "colorImages": {
-      "#000000": "../Merch and T-Shirts/Maze_T-shirt-Army_Green.jpg",
-      "#ffffff": "../Merch and T-Shirts/--.jpg"
+      "#4a5d23": "../Merch and T-Shirts/Maze_T-shirt-Army_Green.jpg",
+      "#000000": "../Merch and T-Shirts/Maze_T-shirt-Army_Green.jpg"
       },
       "sizes": ["XS", "S", "M", "L", "XL", "XXL"],
       "image": "../Merch and T-Shirts/Maze_T-shirt-Army_Green.jpg",

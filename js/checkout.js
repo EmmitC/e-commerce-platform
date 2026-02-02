@@ -11,6 +11,19 @@ class CheckoutManager {
     this.setupPaymentMethods();
   }
 
+  selectPaymentMethod(method) {
+    // Hide all forms
+    document.querySelectorAll('.payment-form').forEach(form => {
+      form.style.display = 'none';
+    });
+
+    // Show selected form
+    const formToShow = document.getElementById(method + 'Form');
+    if (formToShow) {
+      formToShow.style.display = 'block';
+    }
+  }
+
   bindEvents() {
     // Listen for cart updates
     document.addEventListener('cartUpdated', () => {
@@ -19,29 +32,12 @@ class CheckoutManager {
     });
 
     // Payment method selection
-   
-    // Show the selected payment form
-function selectPaymentMethod(method) {
-  // Hide all forms
-  document.querySelectorAll('.payment-form').forEach(form => {
-    form.style.display = 'none';
-  });
-
-  // Show selected form
-  const formToShow = document.getElementById(method + 'Form');
-  if (formToShow) {
-    formToShow.style.display = 'block';
-  }
-}
-
-// Payment method selection listener
-document.querySelectorAll('.payment-method').forEach(method => {
-  method.addEventListener('click', (e) => {
-    const selectedMethod = e.target.dataset.method;
-    selectPaymentMethod(selectedMethod);
-  });
-});
-
+    document.querySelectorAll('.payment-method').forEach(method => {
+      method.addEventListener('click', (e) => {
+        const selectedMethod = e.target.dataset.method;
+        this.selectPaymentMethod(selectedMethod);
+      });
+    });
 
     // Checkout form submission
     const checkoutForm = document.getElementById('checkoutForm');
@@ -111,27 +107,33 @@ document.querySelectorAll('.payment-method').forEach(method => {
       cartContainer.appendChild(cartItem);
     });
 
-   function calculateTotal() {
-  let subtotal = calculateCartSubtotal(); // your existing logic
-
-  // Apply coupon if available
-  if (appliedCoupon.type === "percentage") {
-    const discountAmount = subtotal * (appliedCoupon.value / 100);
-    subtotal -= discountAmount;
-  } else if (appliedCoupon.type === "amount") {
-    subtotal -= appliedCoupon.value;
+    this.updateTotal(subtotal);
   }
 
-  // Ensure subtotal doesn’t go below 0
-  if (subtotal < 0) subtotal = 0;
+  updateTotal(subtotal) {
+    const cartSubtotal = document.getElementById('cartSubtotal');
+    const cartTax = document.getElementById('cartTax');
+    const cartTotal = document.getElementById('cartTotal');
 
-  const tax = subtotal * 0.08; // 8% tax
-  const total = subtotal + tax;
+    // Apply coupon if available
+    if (window.appliedCoupon) {
+      if (window.appliedCoupon.type === "percentage") {
+        const discountAmount = subtotal * (window.appliedCoupon.value / 100);
+        subtotal -= discountAmount;
+      } else if (window.appliedCoupon.type === "amount") {
+        subtotal -= window.appliedCoupon.value;
+      }
+    }
 
-  if (cartSubtotal) cartSubtotal.textContent = `$${subtotal.toFixed(2)}`;
-  if (cartTax) cartTax.textContent = `$${tax.toFixed(2)}`;
-  if (cartTotal) cartTotal.textContent = `$${total.toFixed(2)}`;
-}
+    // Ensure subtotal doesn't go below 0
+    if (subtotal < 0) subtotal = 0;
+
+    const tax = subtotal * 0.08; // 8% tax
+    const total = subtotal + tax;
+
+    if (cartSubtotal) cartSubtotal.textContent = `$${subtotal.toFixed(2)}`;
+    if (cartTax) cartTax.textContent = `$${tax.toFixed(2)}`;
+    if (cartTotal) cartTotal.textContent = `$${total.toFixed(2)}`;
   }
 
   setupPaymentMethods() {
