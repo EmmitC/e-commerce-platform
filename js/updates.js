@@ -1,5 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("emailUpdatesForm");
+  
+  if (!form) return;
 
   form.addEventListener("submit", async function (e) {
     e.preventDefault();

@@ -3,14 +3,16 @@ const toggle = document.getElementById('mobileToggle');
 const menu = document.getElementById('mobileMenu');
 const backdrop = document.getElementById("menuBackdrop");
 
-// Toggle mobile navigation menu
-function toggleMenu() {
-  if (menu && menu.classList.contains("hidden")) {
-    menu.classList.remove("hidden");
-    if (backdrop) backdrop.classList.remove("hidden");
-  } else if (menu) {
-    menu.classList.add("hidden");
-    if (backdrop) backdrop.classList.add("hidden");
+// Close mobile menu and backdrop
+function closeMenu() {
+  if (menu) {
+    menu.classList.remove('show');
+  }
+  if (toggle) {
+    toggle.classList.remove('active');
+  }
+  if (backdrop) {
+    backdrop.classList.add('hidden');
   }
 }
 
@@ -29,25 +31,24 @@ if (toggle && menu) {
     toggle.classList.toggle('active');
     menu.classList.toggle('show');
     if (backdrop) {
-      backdrop.style.display = menu.classList.contains('show') ? "block" : "none";
+      if (menu.classList.contains('show')) {
+        backdrop.classList.remove('hidden');
+      } else {
+        backdrop.classList.add('hidden');
+      }
     }
   });
 }
 
 // Close menu if backdrop clicked
 if (backdrop) {
-  backdrop.addEventListener("click", toggleMenu);
+  backdrop.addEventListener("click", closeMenu);
 }
 
 // Close menu when clicking a nav link (for better UX)
 document.querySelectorAll('#mobileMenu a, #mobileMenu button').forEach(link => {
   link.addEventListener('click', () => {
-    if (menu) {
-      menu.classList.add("hidden");
-      menu.classList.remove("show");
-    }
-    if (toggle) toggle.classList.remove("active");
-    if (backdrop) backdrop.style.display = "none";
+    closeMenu();
   });
 });
 

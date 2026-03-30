@@ -80,12 +80,6 @@
 }
 
 
-/* Show when toggled */
-.navbar-menu.show {
-  right: 100%;
-}
-
-
 .navbar-menu li a,
 .navbar-menu li button {
   text-decoration: none;

@@ -7,9 +7,9 @@
   };
 
   let appliedCoupon = {
-  type: null,   // "percentage" or "amount"
-  value: 0
-};
+    type: null,   // "percentage" or "amount"
+    value: 0
+  };
 
 function applyCoupon() {
   const input = document.getElementById("couponCode");

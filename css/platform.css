@@ -254,25 +254,24 @@ nav {
  
 } */
 
-#emailUpdatesForm{
-   .updates-form {
-      background: rgba(0, 0, 0, 0.7);
-      display: flex;
-      z-index: 999;
-    }
+#emailUpdatesForm .updates-form {
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  z-index: 999;
+}
 
-    .modal-content {
-      background: #000000;
-      padding: 2rem;
-      border-radius: 10px;
-      width: 100%;
-      max-width: 800px;
-    }
+#emailUpdatesForm .modal-content {
+  background: #000000;
+  padding: 2rem;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 800px;
+}
 
-    .close-btn {
-      float: right;
-      font-size: 1.5rem;
-      cursor: pointer;
+#emailUpdatesForm .close-btn {
+  float: right;
+  font-size: 1.5rem;
+  cursor: pointer;
       border: none;
       color: white;
     }
@@ -1040,7 +1039,7 @@ button img{
 .btn {
   display: inline-block;
   padding: 12px 24px;
-  border:var(--fg) 1px solid var(--tertiary);
+  border: 1px solid var(--tertiary);
   border-radius: var(--border-radius);
   font-weight: 600;
   text-decoration: none;

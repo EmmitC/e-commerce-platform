@@ -5,8 +5,4 @@
       modal.classList.toggle('flex');
     }
 
-    document.getElementById("emailUpdatesForm")?.addEventListener("submit", function (e) {
-      e.preventDefault();
-      alert("Thanks for subscribing!");
-      toggleForm();
-    });
+    window.toggleForm = toggleForm;
